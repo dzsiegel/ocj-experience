@@ -1,3 +1,10 @@
+//This code is borrowed from someone else and ended up not working properly,
+//because it turned my CSS dysfunctional...I leave it here for ideas
+
+//this was the other button that worked perfectly
+//https://www.w3schools.com/howto/howto_js_read_more.asp
+//however, it would only work for one button...
+
 function AddReadMore() {
   //This limit you can set after how much characters you want to show Read More.
   var carLmt = 200;
