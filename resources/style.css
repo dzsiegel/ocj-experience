@@ -1,0 +1,366 @@
+/* ~~~~ universal styles ~~~~ */
+
+* {
+  box-sizing: content-box;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+
+  
+}
+
+html {
+  --header-height: 80px;
+  --main-font: "IBM Plex Serif", "Times new Roman", serif;
+  --header-font: "Bebas Neue", "Trebuchet MS", sans-serif;
+  --main-background-color: hsla(15, 15%, 90%);
+  --accent-color-1: #bc002d;
+  --accent-color-2: #C15732;
+  --accent-color-3: ghostwhite;
+  --header-background-color: #2C2C2C;
+}
+
+body {
+  /** background-color: hsl(1, 16%, 67%); **/
+  background-color: var(--main-background-color);
+  color: black;
+}
+
+main {
+  padding-top: var(--header-height);
+  width: 80%;
+  margin: 0 auto;
+}
+
+h2 {
+  font-family: var(--header-font);
+  text-transform: uppercase;
+  font-size: 2.25rem;
+  color: black;
+}
+
+p {
+  font-family: var(--main-font);
+}
+
+
+
+/* ~~~~ header and nav ~~~~ */
+
+header {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  border-bottom: 4px solid var(--accent-color-1);
+  width: 100%;
+  background-color: var(--header-background-color);
+  z-index: 99;
+  
+}
+
+.branding img {
+  display: flex;
+  height: 80px;
+  padding-left: 20px;
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+}
+
+.branding-text h6 {
+  font-family: var(--main-font);
+  font-size: 15px;
+  letter-spacing: .05rem;
+  color: var(--accent-color-3);
+}
+
+.branding-text {
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
+}
+
+nav ul {
+  padding-right: 20px;
+}
+
+nav li {
+  display: inline;
+  padding-left: 15px;
+  
+}
+
+nav a {
+  color: var(--accent-color-3);
+  text-decoration: none;
+}
+
+nav a:hover {
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* main page area */
+
+#map {
+  width: 100%;
+  overflow: hidden;
+}
+
+h2.title {
+  margin: 15px 0px;
+  filter: drop-shadow(0.11rem 0.11rem 2px var(--accent-color-1))
+}
+
+h4 {
+  font-family: var(--main-font);
+}
+
+.theme {
+  margin-bottom: 1rem;
+}
+
+.theme p {
+  margin-top: 1rem;
+}
+
+.theme blockquote {
+  font-family: var(--main-font);
+  font-size: .88rem;
+  margin-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+footer {
+  font-family: var(--main-font);
+  font-size: .77rem;
+  margin-top: 75px;
+  padding-left: 1.5rem;
+  padding-bottom: 1.5rem;
+  
+}
+
+/* image rules */
+
+
+
+figcaption {
+  font-family: var(--main-font);
+  font-size: .75rem;
+  font-style: italic;
+}
+
+.image-wrap {
+  width: 350px;
+  float: left;
+  padding-right: .5rem;
+}
+
+.image-wrap .text-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* citations rules */
+
+#citations {
+  margin-top: .5rem;
+}
+
+#citations h6 {
+  font-family: var(--main-font);
+  font-size: .88rem;
+}
+
+.citation {
+  font-family: var(--main-font);
+  font-size: .77rem;
+  display: block;
+}
+
+
+
+/* special stuff */
+/* below this line */
+
+
+
+
+/* mobile nav */
+
+#mobile-nav {
+  height: 100%;
+  width: 10%;
+  
+}
+
+.menu-button-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  
+}
+
+.menu {
+  font-family: var(--header-font);
+  position: absolute;
+  flex-direction: column;
+  top: 0;
+  margin-top: var(--header-height);
+  left: 0;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+  display: block;
+  background-color: #fff;
+  position: absolute;
+  height: 5px;
+  width: 38px;
+  transition: transform 400ms ease-out;
+  border-radius: 2px;
+}
+
+.menu-button::before {
+  content: '';
+  margin-top: -12px;
+}
+
+.menu-button::after {
+  content: '';
+  margin-top: 12px;
+}
+
+#menu-toggle {
+  display: none;
+  
+}
+
+#menu-toggle ~ .menu li {
+  height: 0;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  position: relative;
+  transition: height 500ms ease-in;
+}
+
+#menu-toggle:checked ~ .menu li {
+  border-top: 4px solid var(--accent-color-1);
+  height: 2rem;
+  padding: 0.25rem;
+  transition: height 500ms ease-out;
+}
+
+#menu-toggle:checked ~ .menu li:last-child {
+  border-bottom: 4px solid var(--accent-color-1)
+}
+
+#menu-toggle:not(:checked) ~ .menu li {
+  opacity: 0;
+}
+
+.menu > li {
+  display: flex;
+  width: 100%;
+  background-color: var(--header-background-color);
+  justify-content: center;
+  align-items: center;
+  color: ghostwhite;
+  margin: 0;
+}
+
+
+
+
+/* read more rules */
+
+
+
+
+
+/* hover underline from left */
+/* original code from www.thefracturedmonolith.com */
+/* coded by Kathy Cheng */
+
+.hvr-underline-from-left {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--header-font);
+  font-size: 1.2rem;
+}
+
+.hvr-underline-from-left:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: var(--accent-color-1);
+  height: 1px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
+  right: 0;
+}
+
+
+/* media rules */
+
+@media only screen and (min-width: 940px) {
+  #mobile-nav {
+    display: none;
+  }
+  
+}
+
+@media only screen and (max-width: 939px) {
+  
+  * {
+    font-size: 20px;
+  }
+  
+  #desktop-nav {
+    display: none;
+  }
+  
+  main {
+    width: 100%;
+  }
+  
+  h2.title {
+    margin: 0px;
+    padding-left: 10px;
+  }
+  
+  #themes {
+    padding: 0px 10px;
+  }
+}
