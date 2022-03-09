@@ -5,71 +5,173 @@
     <title>Orange County Japanese Experience, 1900-1950</title>
     <link href="../resources/style.css" type="text/css" rel="stylesheet">
     <meta charset="utf-8" lang="en">
+  
     
- 
-    <!-- fonts, scripts, bootstrap, compatibility -->
+    <!-- fonts, scripts, compatibility -->
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://kit.fontawesome.com/f21c084e96.js" crossorigin="anonymous"></script>
+
+    
+  <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Serif&display=swap" rel="stylesheet">
     
-   
+  <script src="../resources/hamburger-menu.js"></script>
+  <script src="../resources/readMore.js"></script>
     
   </head>
   
-  <body>
-     <header>
+  <body onload="AddReadMore()">
+    
+    
+  <header>
+       
+    <div id="desktop-header">
       <div class="branding">
-        <img src="../resources/logo/ocjalogov2-1.png">
+        <img alt="Orange County" src="../resources/logo/ocjalogov2-1.png">
         <div class="branding-text">
-        <h6>Japanese</h6>
-        <h6>Experience</h6>
-        <h6>1900-1950</h6>
+          <span>Japanese</span>
+          <span>Experience</span>
+          <span>1900-1950</span>
         </div>
-       </div>
+      </div>
       <nav id="desktop-nav">
         <ul class="nav">
-          <li><a href="index.html"><div class="hvr-underline-from-left">Intro</div></a></li>
-          <li><a href="pages/immigrant-narrative.html"><div class="hvr-underline-from-left">"Immigrant Narrative"</div></a></li>
-          <li><a href="pages/communities.html"><div class="hvr-underline-from-left">Communities</div></a></li>
-          <li><a href="pages/incarceration.html"><div class="hvr-underline-from-left">Incarceration</div></a></li>
-          <li><a href="pages/sources.html"><div class="hvr-underline-from-left">Sources</div></a></li>
-          <li><a href="pages/about.html"><div class="hvr-underline-from-left">About</div></a></li>
+          <li><a href="../index.html"><div class="hvr-underline-from-left">Intro</div></a></li>
+          <li><a href="./immigrant-narrative.html"><div class="hvr-underline-from-left">"Immigrant Narrative"</div></a></li>
+          <li><a href="./communities.html"><div class="hvr-underline-from-left">Communities</div></a></li>
+          <li><a href="./incarceration.html"><div class="hvr-underline-from-left">Incarceration</div></a></li>
+          <li><a href="./sources.html"><div class="hvr-underline-from-left">Sources</div></a></li>
+          <li><a href="./about.html"><div class="hvr-underline-from-left">About</div></a></li>
         </ul>
       </nav>
+    </div>
        
+    <div id="mobile-header">
+      <div class="branding">
+        <img alt="Orange County" src="../resources/logo/ocjalogov2-1.png">
+        <div class="branding-text">
+          <span>Japanese</span>
+          <span>Experience</span>
+          <span>1900-1950</span>
+        </div>
+      </div>
        <nav id="mobile-nav">
-        <input id="menu-toggle" type="checkbox" />
-        <label class="menu-button-container" for="menu-toggle">
-          <div class="menu-button"></div> 
-        </label>
-        <ul class="menu">
+         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+           <i class="fa-solid fa-bars fa-2xl"></i>
+         </a>
+         <ul id="myLinks">
           <li><a href="../index.html">Intro</a></li>
           <li><a href="./immigrant-narrative.html">"Immigrant Narrative"</a></li>
           <li><a href="./communities.html">Communities</a></li>
           <li><a href="./incarceration.html">Incarceration</a></li>
           <li><a href="./sources.html">Sources</a></li>
           <li><a href="./about.html">About</a></li>
-        </ul>
+         </ul>
+         
+         
        </nav>
       
+      </div>
+       
+       
     </header>
   
     
   
     <main>
-      <h2 class="title">Sources</h2>
+      <h1 class="title">Sources</h1>
 
       <section id="themes">
         
-        <p>tekisuto</p>
+        <p>Listed below are all oral histories I used from Cal State Fullerton’s Lawrence de Graaf Center for Oral and Public History. Many are available online. I requested a handful of digitized recordings and transcriptions of interviews from the COPH directly, which are referenced without a URL since they are unavailable online. Also included are a couple outside sources that have helped in my research process. </p>
+        
+        <div class="sources">
+
+          <span class="citation">Akiyama, Henry Kiyomi, and Arthur A. Hansen. Interview with Henry Kiyomi Akiyama for the Japanese American Oral History Project. Translated by Yasko Gamo. Accessed November 15, 2021. <a href="https://oac.cdlib.org/view?docId=ft4b69n873;NAAN=13030&doc.view=frames&chunk.id=d0e231&toc.depth=1&toc.id=d0e231&brand=oac4.">URL</a></span>
+          
+          <span class="citation">“Densho Encyclopedia.” Accessed March 7, 2022. <a href="https://encyclopedia.densho.org/">https://encyclopedia.densho.org/.</a></span>
+          
+          <span class="citation">Fujii, George. Interview with George Fujii for the Japanese American Project. Interview by Ronald C. Larson and Russell Nowell, August 31, 1976. <a href="http://texts.cdlib.org/view?docId=ft1f59n61r;NAAN=13030&doc.view=frames&chunk.id=d0e6798&toc.depth=1&toc.id=&brand=oac4.">URL</a></span>
+          
+          <span class="citation">Furuta, Yukiko. Interview with Yukiko Furuta for the Japanese American Oral History Project. Interview by Arthur A. Hansen. Translated by Yasko Gamo, June 17, 1982. <a href="https://oac.cdlib.org/view?docId=ft7p3006z0;NAAN=13030&doc.view=frames&chunk.id=d0e210&toc.depth=1&toc.id=d0e210&brand=oac4.">URL</a></span>
+          
+          <span class="citation">Ishii, Amy Uno. Interview with Amy Uno Ishii for the Japanese American Project. Interview by Betty E. Mitson, July 9, 1973.  <a href="https://digitalcollections.archives.csudh.edu/digital/collection/p16855coll4/id/38237/rec/11.">URL</a></span>
+          
+          <span class="citation">Ishii, Charles. Interview with Charles Ishii for the Japanese American Project. Interview by Arthur A. Hansen, August 18, 1981.</span>
+          
+          <span class="citation">Iwatsuru, Yoneko Dobashi. Interview with Yoneko Dobashi Iwatsuru for the Japanese American Oral History Project. Interview by Diane Tappey, January 19, 1984.  <a href="https://oac.cdlib.org/view?docId=ft1z09n6c6;NAAN=13030&doc.view=frames&chunk.id=d0e179&toc.depth=1&toc.id=&brand=oac4.">URL</a></span>
+          
+          <span class="citation">Kamei, Shizu. Interview with Shizu Kamei for the Japanese American Oral History Project. Interview by Toni Rimel. Translated by Masako Hanada, January 23, 1984.  <a href="https://oac.cdlib.org/view?docId=ft0b69n59f;NAAN=13030&doc.view=frames&chunk.id=d0e146&toc.depth=1&toc.id=&brand=oac4.">URL</a></span>
+          
+          <span class="citation">Kanegae, Henry. Interview with Henry Kanegae for the Japanese American Project. Interview by Richard Curtiss, February 12, 1966.   <a href="https://oac.cdlib.org/view?docId=ft3s20047k;NAAN=13030&doc.view=frames&chunk.id=d0e119&toc.depth=1&toc.id=&brand=oac4.">URL</a></span>
+          
+          <span class="citation">Kaneko, Hyotaro. Interview with Hyotaro Kaneko for the Japanese American Oral History Project. Interview by Marsha Bode. Translated by Yukiko Sato, January 23, 1984.<a href="https://oac.cdlib.org/view?docId=ft300003qn;NAAN=13030&doc.view=frames&chunk.id=d0e146&toc.depth=1&toc.id=&brand=oac4.">URL</a></span>
+          
+          <span class="citation">Kaneko, Mine Yabuki. Interview with Mine Yabuki Kaneko for the Japanese American Oral History Project. Interview by Marsha Bode. Translated by Yukiko Sato, January 26, 1984.<a href="https://oac.cdlib.org/view?docId=ft3779n7g8;NAAN=13030&doc.view=frames&chunk.id=d0e146&toc.depth=1&toc.id=&brand=oac4.">URL</a></span>
+          
+          <span class="citation">Kanno, George. Interview with George Kanno for the Japanese American Oral History Project, February 25, 1966. <a href="https://oac.cdlib.org/ark:/13030/ft1s2003b1/?brand=oac4.">URL</a></span>
+          
+          <span class="citation">Kanno, James. Interview with James Kanno for the Japanese American Project. Interview by John McFarlane, April 26, 1971. <a href="https://oac.cdlib.org/view?docId=ft2g5003k0;NAAN=13030&doc.view=frames&chunk.id=d0e119&toc.depth=1&toc.id=&brand=oac4.">URL</a></span>
+          
+          <span class="citation">Kanno, Maki. Interview with Maki Kanno for the Japanese American Oral History Project. Interview by Toni Rimel. Translated by Masako Hanada, November 30, 1983. <a href="https://oac.cdlib.org/ark:/13030/ft6h4nb3cf/?brand=oac4.">URL</a></span>
+          
+          <span class="citation">Kikuchi, Kenji. Interview with Kenji Kikuchi for the Japanese American Oral History Project. Interview by Arthur A. Hansen, August 26, 1981. <a href="https://oac.cdlib.org/view?docId=ft7d5nb3gn;NAAN=13030&doc.view=frames&chunk.id=d0e192&toc.depth=1&toc.id=&brand=oac4.">URL</a></span>
+          
+          <span class="citation">Kishiyama, J.S., and Y. Kishiyama. Interview With J.S. Kishiyama and Y. Kishiyama for the Japanese American Oral History Project. Interview by Pat Morgan, April 6, 1973. <a href="https://oac.cdlib.org/view?docId=ft096n98sf;NAAN=13030&doc.view=frames&chunk.id=d0e123&toc.depth=1&toc.id=&brand=oac4.">URL</a></span>
+          
+          <span class="citation">Kobayashi, Roy. Interview with Roy Kobayashi for the Japanese American Oral History Project. Interview by Don Niemeyer, August 13, 1976.</span>
+
+          <span class="citation">Masukawa, Betty Oba. Interview with Betty Oba Masukawa for the Japanese American Project. Interview by Diane Tappey, November 2, 1983. <a href="https://oac.cdlib.org/view?docId=ft2r29n7fq;NAAN=13030&doc.view=frames&chunk.id=d0e183&toc.depth=1&toc.id=&brand=oac4.">URL</a></span>
+          
+          <span class="citation">Munemitsu, Tad. Interview with Tad Munemitsu for the Japanese American Oral History Project. Interview by Katherine H. Snope, August 16, 1976.</span>
+          
+          <span class="citation">Nishizu, Clarence Iwao. Interview with Clarence Iwao Nishizu for the Japanese American Oral History Project. Interview by Arthur A. Hansen, June 14, 1982. <a href="https://oac.cdlib.org/view?docId=hb009n977b;NAAN=13030&doc.view=frames&chunk.id=div00003&toc.depth=1&toc.id=&brand=oac4.">URL</a></span>
+          
+          <span class="citation">Nitta, Hitoshi. Interview with Hitoshi Nitta for the Japanese American Project. Interview by Richard Curtiss, February 7, 1966. <a href="https://oac.cdlib.org/view?docId=ft2f59n6z1;NAAN=13030&doc.view=frames&chunk.id=d0e119&toc.depth=1&toc.id=&brand=oac4.">URL</a></span>
+          
+          <span class="citation">Nitta, Mary. Interview with Mary Nitta for the Japanese American Oral History Project. Interview by Ruth Wilkerson, March 27, 1972.</span>
+          
+          <span class="citation">---. Interview with Mary Nitta for the Japanese American Oral History Project. Interview by Karen Reisdorf, July 19, 1973.</span>
+          
+          <span class="citation">Nitta, Minoru. Interview with Minoru Nitta for the Cal State Community History Project. Interview by John McFarlane, March 21, 1971.</span>
+          
+          <span class="citation">---. Interview with Minoru Nitta for the Orange County Pioneer Council Project. Interview by Alexander Nalle, April 3, 2005.</span>
+          
+          <span class="citation">Nitta, Mitsuo. Interview with Mitsuo Nitta for the Japanese American Oral History Project. Interview by Rolf Janssen, August 12, 1976. <a href="http://digitalcollections.archives.csudh.edu/digital/collection/p16855coll4/id/376/rec/23.">URL</a></span>
+          
+          <span class="citation">“OCO & Tanaka Farms Walk the Farm.” Accessed November 3, 2021. <a href="https://www.walkthefarm.org/">https://www.walkthefarm.org/</a>.</span>
+          
+          <span class="citation">Shigekawa, Kiyoshi, and Mrs. Shigekawa. Interview with Kiyoshi Shigekawa for the Japanese American Oral History Project. Interview by Harris Stone, March 17, 1971.</span>
+          
+          <span class="citation">Takahashi, Hana. Interview with Hana Takahashi for the Japanese American Oral History Project. Interview by Taeko Okimoto, July 15, 1976. <a href="https://cdm16855.contentdm.oclc.org/digital/collection/p16855coll4/id/47944.">URL</a></span>
+          
+          <span class="citation">Taketa, Roy Y. Interview with Roy Y. Taketa for the Japanese American Project. Interview by Mary M. McCarthy, July 13, 1973. <a href="https://oac.cdlib.org/view?docId=ft596nb236;NAAN=13030&doc.view=frames&chunk.id=d0e119&toc.depth=1&toc.id=&brand=oac4. ">URL</a></span>
+          
+          <span class="citation">Tashima, Masako, and Mary Tashima. Interview with Masako Tashima for the Japanese American Oral History Project. Interview by Pat Tashima, June 1, 1974. <a href="https://oac.cdlib.org/view?docId=ft7779p0c1;NAAN=13030&doc.view=frames&chunk.id=d0e123&toc.depth=1&toc.id=&brand=oac4. ">URL</a></span>
+          
+          <span class="citation">Tashima, Yoshiyuki. Interview with Yoshiyuki Tashima for the Japanese American Oral History Project. Interview by Pat Tashima, February 20, 1974. <a href="https://oac.cdlib.org/view?docId=ft809nb3zk;NAAN=13030&doc.view=frames&chunk.id=d0e119&toc.depth=1&toc.id=&brand=oac4.">URL</a></span>
+          
+          <span class="citation">Uno, Roy. Interview with Roy Uno for the Japanese American Oral History Project. Interview by John McFarlane, April 25, 1971.<a href=" https://oac.cdlib.org/view?docId=ft6580067j;NAAN=13030&doc.view=frames&chunk.id=d0e119&toc.depth=1&toc.id=&brand=oac4. ">URL</a></span>
+          
+          <span class="citation">Uyesugi, Mas. Interview With Mas Uyesugi for the Japanese American Oral History Project. Interview by John McFarlane, April 16, 1971. <a href=" https://oac.cdlib.org/view?docId=ft9199p1b9;NAAN=13030&doc.view=frames&chunk.id=d0e119&toc.depth=1&toc.id=&brand=oac4. ">URL</a></span>
+          
+          <span class="citation">Yamada, Takeo. Interview With Takeo Yamada for the Japanese American Oral History Project. Interview by Pat Morgan, March 26, 1973. <a href=" https://oac.cdlib.org/ark:/13030/ft6d5nb2z3/?brand=oac4.">URL</a></span>
+          
+          <span class="citation">Yamamoto, J. K. “Celebrating Issei and Nisei Farmers.” Rafu Shimpo, June 22, 2021. <a href="http://rafu.com/2021/06/celebrating-issei-and-nisei-farmers/ ">http://rafu.com/2021/06/celebrating-issei-and-nisei-farmers/.</a></span>
+          
+          <span class="citation">Yoshida, Yoshiki. Interview With Yoshiki Yoshida for the Japanese American Oral History Project. Interview by Alice Maxwell. Translated by Yukiko Sato, November 19, 1983. <a href="https://oac.cdlib.org/view?docId=ft4j49n8t6&query=&brand=oac4.">URL</a></span>
+          
+          <span class="citation">Yoshitomi, Kinichi Kimbo. Interview With Kinichi Kimbo Yoshitomi for the Japanese American Oral History Project. Interview by Jones Marilyn, October 10, 1978.</span>
+          
+        </div>
 
       
       </section>
     </main>
     
       <footer>
-    &copy; Dylan Z. Siegel, 2022. All Rights Reserved. Version 0.1.1
+    &copy; Dylan Z. Siegel, 2022. All Rights Reserved. Version 1.0
     
   </footer>
     

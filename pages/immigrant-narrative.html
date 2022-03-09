@@ -9,23 +9,32 @@
     
     <!-- fonts, scripts, bootstrap, compatibility -->
     
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Serif&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f21c084e96.js" crossorigin="anonymous"></script>
+
     
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Serif&display=swap" rel="stylesheet">
+    
+  <script src="../resources/hamburger-menu.js"></script>
+  <script src="../resources/readMore.js"></script>
     
   </head>
   
-  <body>
-     <header>
+  <body onload="AddReadMore()">
+    
+    
+  <header>
+       
+    <div id="desktop-header">
       <div class="branding">
-        <img src="../resources/logo/ocjalogov2-1.png">
+        <img alt="Orange County" src="../resources/logo/ocjalogov2-1.png">
         <div class="branding-text">
-        <h6>Japanese</h6>
-        <h6>Experience</h6>
-        <h6>1900-1950</h6>
+          <span>Japanese</span>
+          <span>Experience</span>
+          <span>1900-1950</span>
         </div>
-       </div>
+      </div>
       <nav id="desktop-nav">
         <ul class="nav">
           <li><a href="../index.html"><div class="hvr-underline-from-left">Intro</div></a></li>
@@ -36,30 +45,45 @@
           <li><a href="./about.html"><div class="hvr-underline-from-left">About</div></a></li>
         </ul>
       </nav>
+    </div>
        
+    <div id="mobile-header">
+      <div class="branding">
+        <img alt="Orange County" src="../resources/logo/ocjalogov2-1.png">
+        <div class="branding-text">
+          <span>Japanese</span>
+          <span>Experience</span>
+          <span>1900-1950</span>
+        </div>
+      </div>
        <nav id="mobile-nav">
-        <input id="menu-toggle" type="checkbox" />
-        <label class="menu-button-container" for="menu-toggle">
-          <div class="menu-button"></div> 
-        </label>
-        <ul class="menu">
+         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+           <i class="fa-solid fa-bars fa-2xl"></i>
+         </a>
+         <ul id="myLinks">
           <li><a href="../index.html">Intro</a></li>
           <li><a href="./immigrant-narrative.html">"Immigrant Narrative"</a></li>
           <li><a href="./communities.html">Communities</a></li>
           <li><a href="./incarceration.html">Incarceration</a></li>
           <li><a href="./sources.html">Sources</a></li>
           <li><a href="./about.html">About</a></li>
-        </ul>
+         </ul>
+         
+         
        </nav>
+      
+      </div>
+       
+       
     </header>
   
     
   
     <main>
-      <h2 class="title">The "Immigrant Narrative"</h2>
+      <h1 class="title">The "Immigrant Narrative"</h1>
       <section id="map">
       
-      <iframe src="https://yalemaps.maps.arcgis.com/apps/webappviewer/index.html?id=bf4f9389ce9e4ff88da7b8dba49f39ab" width="100%" height="601" frameborder="0" style="border:0" allowfullscreen>iFrames are not supported on this page.</iframe>
+      <iframe title="Interactive Map focused on Immigration Patterns from Japan to the U.S." src="https://yalemaps.maps.arcgis.com/apps/webappviewer/index.html?id=bf4f9389ce9e4ff88da7b8dba49f39ab" width="100%" height="601" frameborder="0" style="border:0" allowfullscreen>iFrames are not supported on this page.</iframe>
         
       </section>
     
@@ -67,101 +91,98 @@
 
         
         <div class="theme">
-
           
-          <h4>Mobility, Impermanence</h4>
+          <h2>Mobility, Impermanence</h2>
+          <div class="readMore">
           <p>The first generation of Japanese who moved to the U.S. could have moved for many reasons. </p>
             
-          <p>For men, two reasons stood out. If they were not the first-born son, they were expected to leave their home, because they would not take over the family’s land and business. Others were lured to the U.S. to make more money than they believed they could in Japan. J.S. Kishiyama, who was born in Japan, and moved to the U.S. at age 14 in 1919, following his father and brother, said “In 1919, the purpose of coming to America was to make money, that was it.” (p.2) Reverend Kenji Kikuchi, who served as a pastor at the Wintersburg Church in Orange County, recounted that Reverend Terazawa, who established the Wintersburg mission, advised Japanese arriving in Orange County to buy land in the first years of the 20th century. However, few did this. As Kikuchi described, “their goal was to make money and go back to Japan.” Some had no intentions of returning to Japan once they moved to the U.S., however, like Amy Uno Ishii’s parents. They went so far as to stop registering the births of their children in Japan. It’s possible that Ishii’s parents’ strong Christian upbringing in Japan had a strong influence on that decision (1-3). While there were enclaves of Christians in Japan in the late 19th century, in general the environment was anywhere from unfriendly to hostile, possibly leading to their desire to stay in the U.S.</p>
-            <figure class="image-wrap">
-              <img src="../resources/photos/Photo%20Mar%2002,%2011%2048%2041.jpg" class="text-image">
-              <figcaption>This is a caption and it is very long and we can see how long it will be</figcaption>
-            </figure>
-          <p>Most women in these narratives experienced the trans-pacific journey as a function of marriage—whether they had met their husband in Japan, or were arranged as so-called “picture brides.” Some of their lives changed radically from their experience in Japan. Mary Nitta described her mother as a picture bride, but one with little experience laboring at home, since her family had servants. Nitta’s father was a labor contractor, and her mother wound up cooking for around 35 to 40 people (Nitta 1’18”). Mine Yabuki Kaneko, who grew up in Fukushima prefecture in a silkworm producing family, had longed to go to the U.S. for some time. She had fallen in love with a man who had moved to Kyoto for work, but her family did not approve of this man. As it happened, Hyotaro Kaneko, who had followed his father to the U.S. in 1915, returned to Fukushima prefecture in 1922 seeking a wife. Mine Yabuki Kaneko agreed to marry Hyotaro, and they moved to Wyoming immediately after. There were exceptions. Shizu Kamei, who was born in 1899 in Wakayama prefecture, moved to the U.S. to reunite with her father. After more than 16 years, Kamei arrived in San Francisco in December at the age of 17, meeting her father, Tomegusu Kamei, for the first time (3).
+          <p>For men, two reasons stood out. If they were not the first-born son, they were expected to leave their home, because they would not take over the family’s land and business. Others were lured to the U.S. to make more money than they believed they could in Japan. J.S. Kishiyama, who was born in Japan, and moved to the U.S. at age 14 in 1919, following his father and brother, said “In 1919, the purpose of coming to America was to make money, that was it.”<sup>1</sup> Reverend Kenji Kikuchi, who served as a pastor at the Wintersburg Church in Orange County, recounted that Reverend Terazawa, who established the Wintersburg mission, advised Japanese arriving in Orange County to buy land in the first years of the 20th century. However, few did this. As Kikuchi described, “their goal was to make money and go back to Japan.”<sup>2</sup> Some had no intentions of returning to Japan once they moved to the U.S., however, like Amy Uno Ishii’s parents. They went so far as to stop registering the births of their children in Japan. It’s possible that Ishii’s parents’ strong Christian upbringing in Japan had a strong influence on that decision.<sup>3</sup>  While there were enclaves of Christians in Japan in the late 19th century, in general the environment was rather unfriendly, possibly leading to their desire to stay in the U.S.</p>
+            
+          <p>Most women in these narratives experienced the trans-pacific journey as a function of marriage—whether they had met their husband in Japan, or were arranged as so-called “picture brides.” Some of their lives changed radically from their experience in Japan. Mary Nitta described her mother as a picture bride, but one with little experience laboring at home, since her family had servants. Nitta’s father was a labor contractor, and her mother wound up cooking for around 35 to 40 people.<sup>4</sup> Mine Yabuki Kaneko, who grew up in Fukushima prefecture in a silkworm producing family, had longed to go to the U.S. for some time. She had fallen in love with a man who had moved to Kyoto for work, but her family did not approve of this man. As it happened, Hyotaro Kaneko, who had followed his father to the U.S. in 1915, returned to Fukushima prefecture in 1922 seeking a wife. Mine Yabuki Kaneko agreed to marry Hyotaro, and they moved to Wyoming immediately after. There were exceptions. Shizu Kamei, who was born in 1899 in Wakayama prefecture, moved to the U.S. to reunite with her father. After more than 16 years, Kamei arrived in San Francisco in December at the age of 17, meeting her father, Tomegusu Kamei, for the first time.<sup>5</sup>
           </p>
 
           <div id="citations">
-            <h6>Citations</h6>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
+            <h3>Citations</h3>
+            <span class="citation">1. J.S. Kishiyama and Y. Kishiyama, Interview With J.S. Kishiyama and Y. Kishiyama for the Japanese American Oral History Project, interview by Pat Morgan, April 6, 1973, 2.</span>
+            <span class="citation">2. Kenji Kikuchi, Interview with Kenji Kikuchi for the Japanese American Oral History Project, interview by Arthur A. Hansen, August 26, 1981, 3,.</span>
+            <span class="citation">3. Amy Uno Ishii, Interview with Amy Uno Ishii for the Japanese American Project, interview by Betty E. Mitson, July 9, 1973, 1–3. </span>
+            <span class="citation">4. Mary Nitta, Interview with Mary Nitta for the Japanese American Oral History Project, interview by Ruth Wilkerson, March 27, 1972, 0:01:18..</span>
+            <span class="citation">5. Shizu Kamei, Interview with Shizu Kamei for the Japanese American Oral History Project, interview by Toni Rimel, trans. Masako Hanada, January 23, 1984, 3.</span>
           </div>
-        </div>
- 
+        </div> 
+      </div>
+        
+        <hr>
         
         <div class="theme">
-          <h4>From Where Did They Come?</h4>
-          <p>There was no limitation on where the Japanese arriving in the U.S. had come from. But among those that told their stories in these oral histories, a sizable chunk of them or their parents came from either Fukuoka or Fukushima prefectures. Mine Yabuki Kaneko, Maki Kanno, James Kanno’s parents, Hyotaro Kaneko, and Amy Uno Ishii’s father all came from around Fukushima prefecture. Roy Taketa’s parents, Kin’ichi Kimbo Yoshitomi, Hana Takahashi, Charles Ishii’s parents, Clarence Iwao Nishizu, and Betty Oba Masukawa’s parents all came from Fukuoka prefecture. Others found their way from Wakayama, Hiroshima, Miyagi, Ishikawa, Yamaguchi, Nagasaki, Kumamoto, Kagoshima, and Nagano prefectures.</p>
+          <h2>From Where Did They Come?</h2>
+        <div class="readMore">
+          <p>There was no limitation on where the Japanese arriving in the U.S. had come from. But among those that told their stories in these oral histories, a sizable chunk of them or their parents came from either Fukuoka or Fukushima prefectures. Mine Yabuki Kaneko, Maki Kanno, James Kanno’s parents, Hyotaro Kaneko, and Amy Uno Ishii’s father all came from around Fukushima prefecture. Roy Taketa’s parents, Kin’ichi Kimbo Yoshitomi, Hana Takahashi, Charles Ishii’s parents, Clarence Iwao Nishizu's parents, and Betty Oba Masukawa’s parents all came from Fukuoka prefecture. Others found their way from Wakayama, Hiroshima, Miyagi, Ishikawa, Yamaguchi, Nagasaki, Kumamoto, Kagoshima, and Nagano prefectures. </p>
 
-          <p>It was also evident that some interviewers, particularly Dr. Arthur Hansen, the architect of the Japanese American Oral History Project at CSUF, was interested in stateside prefectural associations—<i>kenjinkai</i>. In interviews that he conducted, he never failed to ask at least a couple questions about prefectural type associations, or even informal arrangements of Japanese in the U.S. The interview with Clarence Iwao Nishizu—something I have given a full treatment to on another section of this website—showed that there were instances of trans-pacific connections. Nishizu, whose interview ran to hundreds of pages, described not a Fukuoka <i>kenjinkai</i>, but a Kasuya <i>gunjinkai</i>, or a county person’s association. (A <i>gun</i> is a smaller administrative unit than a prefecture.) Nishizu related that apparently many people from Kasuya gun in Fukuoka prefecture found their way to Orange County. Charles Ishii related that between 1905 and 1907, many people from Fukuoka prefecture came to Orange County. He believed that his father was drawn to a labor camp in Orange County exactly because of this prefectural connection. Yoshiki Yoshida, who was born in Huntington Beach and grew up on the Irvine Ranch and Chula Vista, explained that there were “about four communities up on the hillside [of the Irvine Ranch]” organized by different prefectures. These accounts beg many questions about the durability and strength of prefectural identity in new countries (and in Japan), and how prefectural identity could help ease or familiarize the process of immigration for Japanese. Here in Orange County, there were certainly enclaves and arrangements based on prefectural identity.</p>
-
+          <p>It was also evident that some interviewers, particularly Dr. Arthur Hansen, the architect of the Japanese American Oral History Project at CSUF in the 1970s and 1980s, was interested in stateside prefectural associations—<i>kenjinkai</i>. In interviews that he conducted, he never failed to ask at least a couple questions about prefectural type associations, or even informal arrangements of Japanese in the U.S. The interview with Clarence Iwao Nishizu—something I have given a full treatment to on another section of this website—showed that there were instances of trans-pacific connections. Nishizu, whose interview ran to hundreds of pages, described not a Fukuoka <i>kenjinkai</i>, but a Kasuya <i>gunjinkai</i>, or a county person’s association. (A <i>gun</i> is a smaller administrative unit than a prefecture.) Nishizu related that apparently many people from Kasuya <i>gun</i> in Fukuoka prefecture found their way to Orange County. Charles Ishii related that between 1905 and 1907, many people from Fukuoka prefecture came to Orange County. He believed that his father was drawn to a labor camp in Orange County exactly because of this prefectural connection. Yoshiki Yoshida, who was born in Huntington Beach and grew up on the Irvine Ranch and Chula Vista, explained that there were “about four communities up on the hillside [of the Irvine Ranch]” organized by different prefectures.<sup>1</sup>  These accounts beg many questions about the durability and strength of prefectural identity in new countries (and in Japan), and how prefectural identity could help ease or familiarize the process of immigration for Japanese. Here in Orange County, there were certainly enclaves and arrangements based on prefectural identity.</p>
+          
             
           <div id="citations">
-            <h6>Citations</h6>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
+            <h3>Citations</h3>
+            <span class="citation">1.  Yoshiki Yoshida, Interview With Yoshiki Yoshida for the Japanese American Oral History Project, interview by Alice Maxwell, trans. Yukiko Sato, November 19, 1983, 13.</span>
+           
           </div>
         </div>
+      </div>
 
+        <hr>
         
         <div class="theme">
-          <h4>Farming</h4>
-          <p>By a wide margin, Orange County’s prewar residents were farmers. That was true of Japanese immigrants, too, whether they worked as laborers, or owned/leased hundreds of acres to make up a small farming empire. They farmed in the foothills north of the Santiago range, along the coast of the Irvine Ranch in Crystal Cove, and in the flatlands from Smeltzer (Huntington Beach) to Wintersburg (Westminster/Fountain Valley), to Santa Ana. Their labor netted them everything from tomatoes to citrus and peppers to asparagus, often folding many other vegetables and fruits. Strawberries proved to be one of the most profitable crops, one that Irvine’s Tanaka farms is still known for. The Nitta family’s Greenspear Farms pulled its name from the spears of asparagus they harvested. Charles Ishii and Clarence Iwao Nishizu each made out well with growing peppers and often had their own drying operations. Of course, some areas of the county were better suited to particular crops. Henry Kiyomi Akiyama described Garden Grove farmers as frequently raising chili peppers, and those in Anaheim dealing with orchards, such as citrus trees. Akiyama was a unique “farmer” among his peers, since he raised goldfish on 20 acres of ponds, exporting them up and down the west coast. Akiyama’s business put to use people in administrative roles as well, for which he hired a couple Caucasian people. He credited his hiring white people with keeping him from being incarcerated in a so-called “enemy alien camp,” for those suspected of having suspicious connections to Japan—different than family camps like Poston.</p>
-
-          <p>Race, however, was a crucial component to whether one could own land in western states—and later on, lease land. So-called Alien Land Laws prevented non-U.S. citizens, targeting Japanese in particular, from owning land. Among those oral histories in this collection, only a small few were lucky enough to have bought land before those laws went into effect in the first few years of the 20th century. That did not mean that Japanese were entirely deprived of working the land in some capacity, but the workaround often became precarious. If an Issei had had a child in the U.S., who was old enough, they would typically lease or buy land in that child’s name. In other cases, an unrelated American born Japanese would hold lease or hold ownership rights to a piece of land in place of a Japanese national, who farmed the land. Tad Munemitsu owned land in Westminster through a guardian, who was a Hawaiian Nisei. The Irvine Company, now Irvine’s largest real estate owner and developer, leased land to Japanese as well. Although according to Yoshiki Yoshida, most Japanese left the Irvine Ranch because of some sort of law change around 1921, likely a tightening of laws relating leasing land to Japanese. In other cases, precarious agreements were made between Japanese and white people that allowed them to surreptitiously lease the land, predictably leaving them without options when they were incarcerated in camps during the war. </p>
-          <div id="citations">
-            <h6>Citations</h6>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-          </div>
-        </div>
-        
-        
-        <div class="theme">
-          <h4>Home Life, Children</h4>
-          <p>As mentioned in a section above, one of the main reasons that women came to the U.S. as Issei was through marriage. The marriages were often arranged before the couple left to the U.S., or when the future husband returned to Japan seeking a wife. Some narrators seemed to be somewhat embarrassed about the picture bride custom, or emphasized that their situation was not that of a picture bride. Still, several women were more open. Shizu Kamei described the picture bride as an “extension” of Japanese customs arranging marriages between families. Yoneko Dobashi Iwatsuru related her mother’s experience, saying that “my mother would jokingly tell me that she and a group of girls came together as picture brides, and that they all thought that, if it all didn't work out, they'd just turn around and go back to Japan." (2) Even if women met their husbands in Japan, the transition to the U.S. could be jarring, especially for those who were not used to farm life. Yukiko Furuta, who came to the U.S. in 1912 at the age of 17 with Mr. Furuta, who was age 31, explained that she was a shut-in. Related through a translator, Furuta’s experience was this:</p>
+          <h2>Orange County Was Full of Farmers</h2>
+        <div class="readMore">
+          <p>By a wide margin, Orange County’s prewar residents were farmers. That was true of Japanese immigrants, too, whether they worked as laborers, or owned/leased hundreds of acres to make up a small farming empire. They farmed in the foothills north of the Santiago range, along the coast of the Irvine Ranch in Crystal Cove, and in the flatlands from Smeltzer (Huntington Beach) to Wintersburg (Huntington Beach/Westminster/Fountain Valley), to Santa Ana. Their labor netted them everything from tomatoes to citrus and peppers to asparagus, often folding in many other vegetables and fruits. Strawberries proved to be one of the most profitable crops, one that Irvine’s Tanaka farms is still known for. The Nitta family’s Greenspear Farms pulled its name from the spears of asparagus they harvested. Charles Ishii and Clarence Iwao Nishizu each made out well with growing peppers and often had their own drying operations. Of course, some areas of the county were better suited to particular crops. Henry Kiyomi Akiyama described Garden Grove farmers as frequently raising chili peppers, and those in Anaheim dealing with orchards, such as citrus trees. Akiyama was a unique “farmer” among his peers, since he raised goldfish on 20 acres of ponds, exporting them up and down the west coast. Akiyama’s business put to use people in administrative roles as well, for which he hired a couple Caucasian people. He credited his hiring white people with keeping him from being incarcerated in a so-called “enemy alien camp,” for those suspected of having suspicious connections to Japan—different than family camps like Poston. </p>
           
-          <blockquote>"Mr. Furuta had to go to work every day. So, he told her to lock the door securely, and not to open it for anyone. She stayed home every day just spending time writing letters to Japan, or reading letters from Japan. She cried when she read the letters. And also she read magazines she was subscribing to from Japan. That was her life at that time." (24)</blockquote>
+          <figure class="image-wrap">
+            <img class="text-image" src="../resources/photos/farmhands.jpg" alt="">
+            <figcaption>"Orange pickers on a Santa Ana Orange grove." ~1912. Shuji Kanno is pictured, 4th from left, presumably husband of Maki Kanno. Courtesy of The Lawrence de Graaf Center for Oral and Public History, California State University, Fullerton. </figcaption>
+          
+          </figure>
+
+          <p>Race, however, was a crucial component to whether one could own land in western states—and later on, lease land. So-called Alien Land Laws prevented non-U.S. citizens, targeting Japanese in particular, from owning land. Among those oral histories in this collection, only a small few were lucky enough to have bought land before those laws went into effect in the first few years of the 20th century. That did not mean that Japanese were entirely deprived of working the land in some capacity, but the workaround often became precarious. If an <i>Issei</i> had had a child in the U.S., who was old enough, they would typically lease or buy land in that child’s name. In other cases, an unrelated American born Japanese would hold lease or hold ownership rights to a piece of land in place of a Japanese national, who farmed the land. Tad Munemitsu owned land in Westminster through a guardian, who was a Hawaiian <i>Nisei</i>. The Irvine Company, now Irvine’s largest real estate owner and developer, leased land to Japanese as well. Although according to Yoshiki Yoshida, most Japanese left the Irvine Ranch because of some sort of law change around 1921, likely a tightening of laws related to leasing land to Japanese. In other cases, precarious agreements were made between Japanese and white people that allowed them to surreptitiously lease the land, predictably leaving them without options when they were incarcerated during the World War Two. </p>
+          <div id="citations">    
+          </div>
+        </div>
+      </div>
+        
+        <hr>
+        
+        <div class="theme">
+          <h2>The Home and Children</h2>
+        <div class="readMore">
+          <p>As mentioned in a section above, one of the main reasons that women came to the U.S. as <i>Issei</i> was through marriage. The marriages were often arranged before the couple left to the U.S., or when the future husband returned to Japan seeking a wife. Some narrators seemed to be somewhat embarrassed about the picture bride custom or emphasized that their situation was not that of a picture bride. Still, several women were more open. Shizu Kamei described the picture bride as an “extension” of Japanese customs arranging marriages between families. Yoneko Dobashi Iwatsuru related her mother’s experience, saying that “my mother would jokingly tell me that she and a group of girls came together as picture brides, and that they all thought that, if it all didn't work out, they'd just turn around and go back to Japan."<sup>1</sup>  Even if women met their husbands in Japan, the transition to the U.S. could be jarring, especially for those who were not used to farm life. Yukiko Furuta, who came to the U.S. in 1912 at the age of 17 with Mr. Furuta, who was age 31, explained that she was a shut-in. Related through a translator, Furuta’s experience was this:</p>
+          
+          <figure class="image-wrap-2">
+            <img src="../resources/photos/woman-children.jpg" class="text-image" alt='A photo of a Japanese woman with children. 1937. Courtesy of The Lawrence de Graaf Center for Oral and Public History, California State University, Fullerton.'>
+            <figcaption>"Woman with children." 1937. Courtesy of The Lawrence de Graaf Center for Oral and Public History, California State University, Fullerton.</figcaption>
+          </figure>
+          
+          <blockquote>"Mr. Furuta had to go to work every day. So, he told her to lock the door securely, and not to open it for anyone. She stayed home every day just spending time writing letters to Japan, or reading letters from Japan. She cried when she read the letters. And also she read magazines she was subscribing to from Japan. That was her life at that time." <sup>2</sup></blockquote>
     
-          <p>Families grew in size, and for farmers, this produced new strains. Amy Uno Ishii, who had 10 brothers and sisters, recalled receiving assistance from the Salvation Army. But at age 12, she volunteered to leave their home to work as a domestic, easing some difficulty on her family. Mine Yabuki Kaneko recalled working as a farmhand even while caring for a newborn. “She left the baby in a crib in the house and she took the older kids to the field. And she worked from the morning till night, till evening.” (15). Although, like many other Issei, the Kaneko’s plans were to return to Japan, “ironically, the children increased faster than money increased,” (15) so they never could quite make that return. Similar to Mine Yabuki Kaneko, Shizu Kamei, who had seven children from 1921 to 1931, said she worked the day before and after one of their son’s birth (48).</p>
+          <p>Families grew in size, and for farmers, this produced new strains. Amy Uno Ishii, who had 10 brothers and sisters, recalled receiving assistance from the Salvation Army. But at age 12, she volunteered to leave their home to work as a domestic, easing some difficulty on her family. Mine Yabuki Kaneko recalled working as a farmhand even while caring for a newborn. “She left the baby in a crib in the house and she took the older kids to the field. And she worked from the morning till night, till evening.”<sup>3</sup> Although, like many other <i>Issei</i>, the Kaneko’s plans were to return to Japan, “ironically, the children increased faster than money increased,” so they never could quite make that return.<sup>4</sup> Similar to Mine Yabuki Kaneko, Shizu Kamei, who had seven children from 1921 to 1931, said she worked the day before and after one of their son’s birth.<sup>5</sup> </p>
   
 
           <div id="citations">
-            <h6>Citations</h6>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
-            <span class="citation">1. Author, Title, Date, Publisher.</span>
+            <h3>Citations</h3>
+            <span class="citation">1. Yoneko Dobashi Iwatsuru, Interview with Yoneko Dobashi Iwatsuru for the Japanese American Oral History Project, interview by Diane Tappey, January 19, 1984, 2.</span>
+            <span class="citation">2.Yukiko Furuta, Interview with Yukiko Furuta for the Japanese American Oral History Project, interview by Arthur A. Hansen, trans. Yasko Gamo, June 17, 1982, 24.</span>
+            <span class="citation">3. Mine Yabuki Kaneko, Interview with Mine Yabuki Kaneko for the Japanese American Oral History Project, interview by Marsha Bode, trans. Yukiko Sato, January 26, 1984, 15.</span>
+            <span class="citation">4. Mine Yabuki Kaneko, Interview with Mine Yabuki Kaneko for the Japanese American Oral History Project, interview by Marsha Bode, trans. Yukiko Sato, January 26, 1984, 15.</span>
+            <span class="citation">5. Shizu Kamei, Interview with Shizu Kamei for the Japanese American Oral History Project, interview by Toni Rimel, trans. Masako Hanada, January 23, 1984, 3.</span>
           </div>
-          
+        </div>
         </div>
         
+      <hr>
       </section>
     </main>
     
       <footer>
-    &copy; Dylan Z. Siegel, 2022. All Rights Reserved. Version 0.1.1
+    &copy; Dylan Z. Siegel, 2022. All Rights Reserved. Version 1.0
     
   </footer>
     

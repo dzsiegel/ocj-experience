@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
+  <head>
     <title>Orange County Japanese Experience, 1900-1950</title>
     <link href="../resources/style.css" type="text/css" rel="stylesheet">
     <meta charset="utf-8" lang="en">
@@ -9,40 +9,32 @@
     
     <!-- fonts, scripts, bootstrap, compatibility -->
     
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Serif&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f21c084e96.js" crossorigin="anonymous"></script>
 
-<script>
-    function myFunction() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("read-more-BTN");
-
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    btnText.innerHTML = "Read More";
-    moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Read Less";
-    moreText.style.display = "inline";
-  }
-}
-    </script>
+    
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Serif&display=swap" rel="stylesheet">
+    
+  <script src="../resources/hamburger-menu.js"></script>
+  <script src="../resources/readMore.js"></script>
     
   </head>
   
-  <body>
-     <header>
+  <body onload="AddReadMore()">
+    
+    
+  <header>
+       
+    <div id="desktop-header">
       <div class="branding">
-        <img src="../resources/logo/ocjalogov2-1.png">
+        <img alt="Orange County" src="../resources/logo/ocjalogov2-1.png">
         <div class="branding-text">
-        <h6>Japanese</h6>
-        <h6>Experience</h6>
-        <h6>1900-1950</h6>
+          <span>Japanese</span>
+          <span>Experience</span>
+          <span>1900-1950</span>
         </div>
-       </div>
+      </div>
       <nav id="desktop-nav">
         <ul class="nav">
           <li><a href="../index.html"><div class="hvr-underline-from-left">Intro</div></a></li>
@@ -53,77 +45,208 @@
           <li><a href="./about.html"><div class="hvr-underline-from-left">About</div></a></li>
         </ul>
       </nav>
+    </div>
        
+    <div id="mobile-header">
+      <div class="branding">
+        <img alt="Orange County" src="../resources/logo/ocjalogov2-1.png">
+        <div class="branding-text">
+          <span>Japanese</span>
+          <span>Experience</span>
+          <span>1900-1950</span>
+        </div>
+      </div>
        <nav id="mobile-nav">
-        <input id="menu-toggle" type="checkbox" />
-        <label class="menu-button-container" for="menu-toggle">
-          <div class="menu-button"></div> 
-        </label>
-        <ul class="menu">
+         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+           <i class="fa-solid fa-bars fa-2xl"></i>
+         </a>
+         <ul id="myLinks">
           <li><a href="../index.html">Intro</a></li>
           <li><a href="./immigrant-narrative.html">"Immigrant Narrative"</a></li>
           <li><a href="./communities.html">Communities</a></li>
           <li><a href="./incarceration.html">Incarceration</a></li>
           <li><a href="./sources.html">Sources</a></li>
           <li><a href="./about.html">About</a></li>
-        </ul>
+         </ul>
+         
+         
        </nav>
+      
+      </div>
+       
+       
     </header>
   
     
   
     <main>
-      <h2 class="title">Communities</h2>
+      <h1 class="title">Communities</h1>
       <section id="map">
       
-      <iframe src="https://yalemaps.maps.arcgis.com/apps/webappviewer/index.html?id=391d1a92a2584a32963ca92a5e471422" width="100%" height="601" frameborder="0" style="border:0" allowfullscreen>iFrames are not supported on this page.</iframe>
+      <iframe title="Interactive Map of Japanese Language Schools in Prewar Orange County" src="https://yalemaps.maps.arcgis.com/apps/webappviewer/index.html?id=391d1a92a2584a32963ca92a5e471422" width="100%" height="601" frameborder="0" style="border:0" allowfullscreen>iFrames are not supported on this page.</iframe>
         
       </section>
+      
     
       <section id="themes">
+        <div class="theme">
+        <figure class="image-wrap-top">
+              <img alt='"Garden Grove Japanese School 9th graduation ceremony." June 11, 1927. Courtesy of The Lawrence de Graaf Center for Oral and Public History, California State University, Fullerton' src="../resources/photos/garden-grove-language-school.jpg" class="text-image">
+              <figcaption>"Garden Grove Japanese School 9th graduation ceremony." June 11, 1927. Courtesy of The Lawrence de Graaf Center for Oral and Public History, California State University, Fullerton</figcaption>
+            </figure> 
+          
+       <p>In Orange County, Japanese people glommed together for a variety of different reasons. Proximity and occupation are the most obvious ones—farmers living nearby were more likely to know and associate with one another. Those living in Wintersburg generally had less to do with those in Anaheim or La Habra. As mentioned in the “Immigrant Narrative” section, a significant number of Japanese who settled in Orange County were from just a couple prefectures. While organized <i>kenjinkai</i> (prefectural associations) did not seem to be a large factor in most people’s lives, they did serve as tethers to attract others from the same prefecture or even county. </p>
+        
+        
+          
+        <p>However, there are two other “communities” worth highlighting here. For some, religion was a key factor for why they came to the U.S., and animated much of their lives in and out of Orange County. Different generations also behaved and associated in markedly different ways—something that is especially evident when we discuss incarceration.</p>
+        </div>
+        
+        <hr>
         
         <div class="theme">
-          
-          <details>
-          <summary>
-            <h4>xxxxx</h4>
-          </summary>
-            <div class="theme-details">
+          <h2>"Lost" Communities</h2>
+         <div class="readMore"> 
+           <p>Today, Irvine, CA in central Orange County is a fairly multicultural planned suburban city. This transformation into suburbia (and a city) only began in the 1960s and 1970s and accelerated over the years—before that, the Irvine Ranch, made from the land of what would be Irvine and small parts of Newport Beach, Newport Coast, Tustin, and Santa Ana, was privately owned farmland. From these oral histories, we know that Japanese lived and worked on the Irvine Ranch during the prewar, but their communities seem to have not been very durable.</p>
+           
+           <p>
+           Of these narrators, Shizu Kamei, Yoshiki Yoshida, Takeo Yamada, and Kenji Kikuchi lived on or interacted with the Irvine Ranch lands. Shizu Kamei lived on the Irvine Ranch from 1933 to 1935, farming tomatoes, squash, and celery unsuccessfully near what is known as Peter’s Canyon. They left to Santa Ana in 1935. Yoshiki Yoshida moved to the Irvine Ranch in 1919, just before many Japanese would leave the Irvine Ranch in 1921, because of the Alien Land Laws. Presumably, because the Irvine Ranch was managed by the Irvine Company, they were unwilling to face the potential legal risk of skirting discriminatory laws, where friends or enterprising individuals might have been. Regardless, by 1933, Yoshida returned to the Irvine Ranch from Chula Vista. From Irvine, Yoshida went to Tustin High, Santa Ana Junior College, informally took over his father’s Irvine farm, and began participating in a Kendo class in Laguna Beach—probably referring to what is known as Crystal Cove today. Takeo Yamada farmed on Irvine Ranch land in 1940 for a short period of time. And, according to Clarence Nishizu, Kenji Kikuchi, the Wintersburg Church pastor, founded the Crystal Cove Japanese Language School in 1929. 
+           </p>
+           
+           <p>
+           According to at least two narrators, the Irvine Ranch land contained many Japanese families and small communities, whether they existed along the Pacific Coast Highway or near the foothills of the Santiago Mountain Range. But, today, aside from the Crystal Cove State Park and Crystal Cove Conservancy’s efforts, there seems to be little trace of there ever being significant Japanese farming enclaves around Irvine. According to Nishizu, the Crystal Cove area became a lightning rod for Japanese farmers because a Mr. Sakamoto and Mr. Yamashita introduced many other Japanese families to the area in 1929. Students around this community attended Newport Grammar School until Japanese children were refused attendance by the Newport Harbor School Board. The Laguna Beach Growers Association was also formed as a kind of seed-buying cooperative. But there were other enclaves. Yoshiki Yoshida says that his family farmed tomatoes on the hillsides north of Irvine Boulevard (today Irvine Boulevard is a fairly central main road that runs parallel to the 5 Freeway through residential and commercial areas). Yoshida even described that Irvine had “six villages” of Japanese people living together on Irvine Ranch Land. In other words, there were a significant number of Japanese people living on the Irvine Ranch, enough to merit community institutions like growers’ associations and language schools.
+           </p>
+           <figure class="image-wrap">
+            <img src="../resources/photos/cottage-34-2.JPG" alt="A photo of Cottage 34 at Crystal Cove State Beach, which was once used as a language school and community meeting place. It was moved to its present location sometime in the 1950s according to Clarence Nishizu." class="text-image">
+            <figcaption>Cottage 34 at Crystal Cove State Beach, which was once used as a language school and community meeting place. It was moved to its present location sometime in the 1950s according to Clarence Nishizu.</figcaption>
+           </figure>
+           <p>
+           But perhaps two clues help us understand why the Japanese communities on the Irvine Ranch dissolved so easily as prejudice heightened and Japanese were incarcerated. As mentioned above, around 1921, many Japanese left the Irvine Ranch because of the Alien Land Law. The unique position of the Irvine Company as a major landholder and agricultural business probably made it fearful of the legal ramifications of allowing many Japanese to lease its land. However, Yoshida was clear that “most” of the Japanese moved from the Irvine Ranch, not all. His uncle was one that never left the Irvine Ranch: “He went to work for the Irvine Company, and when it got to a point where they could go back to farming again—Irvine was going to accept this dummy company to run the deal—then he went back to farming again.”<sup>1</sup> Yoshida returned to Irvine Ranch land in the early 1930s—Nishizu also described many Japanese moving to or returning to the Irvine Ranch in the early 1930s. Moreover, Takeo Yamada, who spent only a short couple years in Irvine, described his family as moving land every couple of years because the soil would suffer from disease. So, probably both the climate of legal discrimination and some recurring patterns of movement contributed to a somewhat weakened community.
+           </p>
+           
+           <p>
+           But how could a community be so weakened that there is little to no mention of a Japanese community enduring after incarceration? Did the Irvine Company’s policies and practice play a role? The six villages that Yoshida described formed in part because of the Irvine Company’s policies. He says that:</p> 
+              <blockquote>“[the] Irvine Company refused to let them put the house on the land, so they formed little villages where you can have the house, and you had to be in one of those places; then you commuted to the fields....That's why we had little villages, not because they wanted to have a little community by themselves, but because of the company rule that you couldn't put the house on the land that you were leasing. That's why we lived in little communities." <sup>2</sup>
+           </blockquote>
+           
+           <p>
+           After incarceration, Yoshida believed that no one had returned to the Irvine Ranch. In his telling, they simply “didn’t have the money to go back to farming.”<sup>3</sup> Indeed, the narrators that seem to have been most successful after the war were those that could hold onto their land, especially since its value increased many times over as postwar development boomed—and the Irvine Company owned all of the Ranch land. Despite Yoshida’s somewhat negative appraisal of the Irvine Company, Takeo Yamada had a more positive outlook. After Pearl Harbor, Yamada explained that some around the Irvine Ranch lands feared Japanese were using some kind of smoke signals while they were dusting tomatoes. With this tense atmosphere, Yamada said the Irvine Company was “nice enough not to let anybody come into the canyon [where they were living]—people were coming in with shotguns. The Company had a security guard.”<sup>4</sup> In fact, after the war, Yamada said that Hugh Plum, the person in charge of leases on Irvine Company land, offered any Japanese farmer the opportunity to return to the land. Still, Yamada says that only a handful of farmers returned to the Irvine Ranch after the war. 
+           </p>
+           
+           <p>
+            Today, a small trace of what existed on the Irvine Ranch lands remains in the historic Cottage 34 preserved on Crystal Cove State Beach. <a href="https://www.walkthefarm.org/ ">There is also a movement</a> to acknowledge Japanese farmers around the western U.S. while raising awareness and financial support for victims of the 3.11 disaster, pushed in large part by Irvine-based Tanaka Farms and the OCO Club. Indeed it seems that the Irvine Company’s ownership of this large swath of land in central Orange County was probably the most important determining factor to how Japanese communities formed and existed in the first half of the 20th century. 
+           </p>
+           
+           <div id="citations">
+            <h3>Citations</h3>
+             <span class="citation">1. Yoshiki Yoshida, Interview With Yoshiki Yoshida for the Japanese American Oral History Project, interview by Alice Maxwell, trans. Yukiko Sato, November 19, 1983, 12.</span>
+             <span class="citation">2. Yoshiki Yoshida, Interview With Yoshiki Yoshida for the Japanese American Oral History Project, interview by Alice Maxwell, trans. Yukiko Sato, November 19, 1983, 11.</span>
+             <span class="citation">3. Yoshiki Yoshida, Interview With Yoshiki Yoshida for the Japanese American Oral History Project, interview by Alice Maxwell, trans. Yukiko Sato, November 19, 1983, 13.</span>
+             <span class="citation">4. Takeo Yamada, Interview With Takeo Yamada for the Japanese American Oral History Project, interview by Pat Morgan, March 26, 1973, 5</span>
+           </div>
+         </div> 
+      </div>
+      <hr>
 
-              
-          </div>
-        </details>
-          
-        </div>
-        
         <div class="theme">
-          <details>
-            <summary><h4>xxxxx</h4></summary>
-              <div class="theme-details">
-                <p>
-                </p>
-                <br>
+          <h2>Religion in Orange County</h2>
+          <div class="readMore">
+          
+            <p>For Christian Japanese, religion was an important part of their lives and communities. For those that acknowledged Buddhist practices, religion seemed to be a minimal part of their lives. </p>
             
-            <iframe src="https://yalemaps.maps.arcgis.com/apps/webappviewer/index.html?id=f6b52a8bd2e846d79d30ef142dc9d07b" width="100%" height="601" frameborder="0" style="border:0" allowfullscreen>iFrames are not supported on this page.</iframe>
-              </div>
+            <p>Perhaps a key issue limiting the influence of Buddhism in Orange County peoples’ lives was the simple lack of a temple or organized community. The nearest temple was in Los Angeles, and besides a few of the Japanese language schools that functioned as community gathering places, there was little to speak of in terms of Buddhist devotion. Both of Yoneko Dobashi Iwatsuru’s parents were originally Buddhists and would travel to Los Angeles. However, as Iwatsuru described it, the children eventually joined local churches, “because it was too far to go into Los Angeles,” almost as if they were interchangeable.  A few years after Shizu Kamei came to the U.S. and was living in Gardena, she married. For her marriage ceremony, a priest from the Nishi Hongan-ji branch in Little Tokyo came to officiate the wedding. </p>
+            
+            <p>
+            On the other hand, the Wintersburg Presbyterian Church in what is now Huntington Beach area, tied many people together through baptism, church attendance, and language school. Kenji Kikuchi, one narrator who became a pastor at the Wintersburg mission—and eventually church—was a part of the Orange County Japanese Christian community for many years. Several other Japanese Christians had laid the path for Kikuchi, including Reverends Nakamura and Terazawa who operated the mission in its early years. By 1928, two years after Kikuchi had arrived in Wintersburg, it was officially organized into a church.  Kikuchi remarked that, in order to get children to Sunday school, he drove around the Talbert area in a Model T Ford with “about nineteen children in an open car.”<sup>1</sup> Still, even with Wintersburg being a hub for Japanese Christians, and with a sizable community in the Talbert and Wintersburg area, other churches existed in Orange County. Charles Ishii explained that a Japanese Free Methodist Church began in Anaheim in the late 1920s, and that there was a Baptist Church in Garden Grove. Moreover, a couple interviewees remarked that they attended churches with almost entirely Caucasian populations. Ishii even supposed that there might have been a Japanese section at a cemetery on Magnolia in Garden Grove, suggesting that Japanese were welcomed in some Christian circles even in death. For Nisei, mingling with non-Japanese at churches was much easier, because the language barrier did not play as much of a role. 
+            </p>
+            
+            <figure class="image-wrap">
+              <img src="../resources/photos/wintersburg-3.jpg" class="text-image" alt="A picture of one of the original buildings of the Wintersburg Church, which has somewhat fallen apart. This building sits behind a long black tarp fence enclosing a couple acres of land. Not pictured here, another part of the Wintersburg Church burned down in February 2022.">
+              <figcaption>One of the original buildings of the Wintersburg Church, which has somewhat fallen apart. This building sits behind a long black tarp fence enclosing a couple acres of land. Not pictured here, another part of the Wintersburg Church burned down in February 2022.</figcaption>
+            </figure>
+            
+            <p>
+            For a few narrators, Christianity seemed to have a large influence on their lives. Amy Uno Ishii’s parents were raised as Christians at American missionary schools, and had no intention of returning to Japan. Like Ishii’s parents, Kenji Kikuchi was shaped by a Christian upbringing. A church minister in his community encouraged him to go to a Sendai Christian school, and for high school, Kikuchi attended Tohoku Gakuin, a school founded by Christian missionaries at that time. Throughout Kiyoshi Shigekawa’s interview, he relied on many metaphors of Christian theology to describe his life. Clarence Iwao Nishizu likewise spent a great deal of time impressing upon his interviewer his wide knowledge of Christian theology and allegory as he described his business dealings and fortune—or lack thereof at certain points in his life.
+            </p>
+            
+            <p>
+            For the Japanese that settled in Orange County, religion was sometimes a major ordering factor of their lives. Whether their Christianity led them to baptism and association with a church community or spiritual influence, they were some of the first Japanese Christians in Orange County. For those that adhered to Buddhist practices, Buddhism seemed to only crop up at major events in their life or as something that their parents participated in, or used to participate in. Still, many of the narrators seemed anxious to emphasize their Americanness and may have been fairly hesitant to speak in great detail about how Buddhism influenced their lives. That tug of war between Americanness and Japaneseness is something we will discuss in the section about incarceration.
+            </p>
+            
+            <div id="citations">
+              <h3>Citations</h3>
+              <span class="citation">1. Kenji Kikuchi, Interview with Kenji Kikuchi for the Japanese American Oral History Project, interview by Arthur A. Hansen, August 26, 1981, 3</span>
+            </div>
+          </div>
+        </div>
+        
+        <hr>
+        
+        <div class="theme">
+          <h2><i>Issei</i>, <i>Nisei</i>, and <i>Kibei</i></h2>
+          <div class="readMore">
+          <p>Those who told their stories can roughly be divided into three generational categories: <i>Issei</i>, <i>Nisei</i>, and <i>Kibei</i>. <i>Issei</i> means first generation immigrants, and for this project, they were mostly those who arrived in the U.S. before or around the mid to late 1920s. Perhaps there were other first-generation Japanese that arrived in the U.S. after that period, but probably because of the increasingly discriminatory laws and climate, they were less likely to. <i>Nisei</i> were second-generation Japanese-Americans, who were the children of the <i>Issei</i> that decided to stay in the U.S. Many <i>Nisei</i> were born in the mid-1910s through the 1930s. Of those <i>Nisei</i>, some can be called <i>Kibei</i> which literally means “coming to America.” The <i>Kibei</i> were those that were born in the U.S., but relocated to Japan for the bulk of their schooling before returning to the U.S. Many political and cultural differences run between these groups.</p>
           
-          </details>
+          <p>
+          Language quickly became a major point of difference between generations. The language struggles and barriers of Issei were significant enough that those who were bilingual functioned as important bridges between communities or in legal matters. Amy Uno Ishii explained that her father was made a foreman when working on railway gangs because of his English language knowledge. In other cases, Maki Kanno described that the pastors at Wintersburg Church were important liaisons when there were translation or legal issues. Of our small group of narrators, those who were long-time Christians were frequently schooled in Christian schools while in Japan, presumably exposing them to English long before migration to the U.S. Thus, those with strong Christian backgrounds were probably more likely to function as translators or go-betweens for <i>Issei</i>. On the other hand, the <i>Nisei</i> grew up mostly with the Japanese that their parents spoke at home. Japanese language schools popped up around Orange County, with at least seven different language schools existing in 1942 at the time of evacuation, according to Clarence Iwao Nishizu. Pastors and conscientious parents typically founded these language schools, which could function as community meeting centers, like Cottage 34 in the Crystal Cove area. However, a couple Nisei mentioned that their interest in Japanese language school waned as they got older and they eventually stopped attending.</p>
+          
+          <p>
+            To help communication between the first and second-generation Japanese, a group of Japanese got together to publish an Orange County-centered single-issue magazine called <i>Echo / Hibiki</i>. The magazine, published by the Orange County YMCA, was bilingual, and according to Nishizu, was designed to help <i>Issei</i> and <i>Nisei</i> understand each other better. In an article from <i>Echo / Hibiki</i> that Nishizu quoted at length, the staff editor of the Rafu Shimpo, a Los Angeles-based Japanese newspaper, encouraged Nisei to not be discouraged by discrimination, but push on. Shiro Fujioka, incorporating a tinge of myth-making about Japaneseness, wrote:
+          </p>
+          
+          <blockquote>
+          "It is a matter of regret that Americans are inclined to harbor racial prejudice toward the Japanese. This unjust discrimination will cast a shadow upon the minds of the young, second generation—but act righteously with justice true to the noble American tradition. Be just and fear not. Don't be discouraged by the depression that prevails. Don't mind the difficulty of securing employment--you must have the spirit of <i>Bushido</i>, and lofty ideals to cope with the evils in life.”<sup>1</sup> 
+          </blockquote>
+
+          <p>
+          The Japanese American Citizens League of Orange County was also a fulcrum for <i>Issei</i> and <i>Nisei</i>. While it was a general community organization, Roy Taketa, whose parents came to the U.S. in the late 1910s from Fukuoka and settled around Long Beach and Los Angeles, described the JACL as mostly being for <i>Nisei</i>. (There was also a Los Angeles chapter.) Yoshiki Yoshida, a <i>Nisei</i> in Irvine, was president of the OC JACL when Japanese were beginning to be rounded up and incarcerated. He left this position to spend more time helping those who were without the male head of the family, because the FBI swiftly detained many Japanese men after Pearl Harbor. James Kanno, a <i>Nisei</i> who was active in incorporating Fountain Valley as a city many years later, served as president of the JACL, presumably in the postwar, and was board member in 1971 when he was interviewed. Before and during the war, Mitsuo Nitta says that the JACL was instrumental in supporting Japanese as they fought inequality, discrimination, and particularly escheat cases—legal maneuvers where the U.S. government attempted to seize land from Japanese and Japanese Americans.  
+          </p>
+          
+          <div id="citations">
+            <h3>Citations</h3>
+            <span class="citation">1. Clarence Iwao Nishizu, Interview with Clarence Iwao Nishizu for the Japanese American Oral History Project, interview by Arthur A. Hansen, June 14, 1982, 139.</span>
+          </div>
+          </div>
+        </div>
+        
+        <hr>
+        
+        <div class="theme">
+          <h2>Kasuya County, Business, and God: Clarence Iwao Nishizu</h2>
+          <div class="readMore">  
+            
+          <p>Of all of the interviews I read, Clarence Iwao Nishizu’s was the most exceptional for its depth, quality, and uniqueness. The interview that I read was initially conducted in 1982, but it eventually grew to be a book-length account of Nishizu’s life and the communities that surrounded him, particularly in Orange County. The reason it grew was because of the methodology that Hansen, the professor in charge of the project, used in preparing the final transcripts. They were returned to narrators for review and editing if they pleased. The result was that Nishizu continuously added, conducted his own research, and revised the transcript so that it was at last completed in 1991. Thanks to Nishizu’s enthusiasm and research for his own narrative, this present project has become richer and more expansive. From Nishizu’s narration, I derived the above map of the Orange County Japanese Language Schools, which were important community pillars for Japanese. Actually, this project probably could have derived multiple visualizations of how Japanese in Orange County related to one another based on his accounts—from family trees to business contracts. </p>
+            <br>
+            <iframe title="Interactive Map of Clarence Iwao Nishizu's Life" src="https://yalemaps.maps.arcgis.com/apps/webappviewer/index.html?id=f6b52a8bd2e846d79d30ef142dc9d07b" width="100%" height="601" frameborder="0" style="border:0" allowfullscreen>iFrames are not supported on this page.</iframe>
+            
+          <p>
+            Nishizu is one of the most interesting characters of all these narrators. Nishizu’s family came from Kasuya county, Fukuoka Prefecture on the southern island of Kyushu. In Nishizu’s telling, many found their way to Orange County from the Nishizu’s home district to the extent that there was a “<i>Kasuyagunjinkai</i>”—a Kasuya County Association—in Orange County. Nishizu says that many of the seasonal workers that came through his family’s farm in the 1920s were from Kasuya county as well. Moreover, Nishizu tells of other Kasuya families in the U.S. functioning like tethers for those migrating from Japan, or those already around California. The connections of nuclear families, relatives, and neighborhood friendships in Japan endured and invigorated new arrangements in the U.S.
+            </p>
+            
+            <p>Nishizu also demonstrated throughout the interview that he was a devout Christian and an ambitious businessman—two things that went hand in hand for him. He began attending the non-Japanese Garden Grove Baptist Church around the 1920s. From then, Nishizu’s Christianity played a significant role in his life. He frequently described much of his luck and the circumstances that led to his success as having to do with God’s will, even if that luck hurt his prospects in the short term. As Nishizu explained in one circumstance where he was forced to allow a highway through his land, “God had a purpose in hurting me by chopping up my land.”<sup>1</sup> After the war, Nishizu slowly found success through a farming partnership with cousins and ultimately real estate deals that made him even more wealthy. While Nishizu described the terms of loans with Japanese banks in Los Angeles many times throughout his interview, his religious zeal also accompanied his success. Nishizu described a time in the 1950s where he and his partners were in a difficult spot financing their farm, so he turned to a banker, who he knew to be a devout Christian. In Nishizu’s telling, simply mentioning the “story of talents in Matthew 25:14” served to secure he and his partners their loan.<sup>2</sup> Nishizu’s faith endowed him with confidence and hope throughout his business dealings as he secured more land, mobile home parks, and eventually the Rainbow Hotel in Las Vegas.</p>
+            
+            <p>
+              The most curious aspect that Nishizu described about his life was a Judo tour through Japan and its empire in 1931, where he met a slew of high-ranking government officials. You can see the full scope of the tour in the map above. The tour, known as the Judo Educational Tour Group (<i>Judo Kengaku Dan</i>), was sponsored by the Southern California Kodokan Judo Society (<i>Nanka Kodokan Judo Yudan Shakai</i>). Sport tours were no rarity at the time—university, semi-pro, and professional baseball teams toured between Japan and the U.S. dozens of times in the prewar period, and the tours of Black League all-stars in the 1920s and 1930s are the subject of <i>Gentle Black Giants: A History of Negro Leaguers in Japan</i>. Nishizu’s tour stands out. Nishizu, along with 11 other <i>Nisei</i>, left the U.S. in September 1931, stopping in Hawaii and then arriving in Yokohama. Their tour took them to many major cities down the main Japanese islands, ending in Kagoshima. But, while in Tokyo, Nishizu met Hatoyama Ichiro, Minister of Education, Isamu Takeshita, a former admiral, Fujinoma Shohei, Tokyo Police Chief, Tokonami Takejiro, Minister of Railroad, Noma Seiji, the founder and publisher of Kodansha, and General Araki Sadao, convicted war criminal of World War Two. It is not clear how or why so many high-ranking officials would meet with this rag tag Judo tour of Japanese from the U.S., but Nishizu says that the fact that their tour leader, a Mr. Yamauchi, was born in Kagoshima prefecture, allowed for them to meet with these officials. However, only Isamu and Tokonami were Kagoshima natives, so perhaps there is more to be known. After traveling through the main Japanese islands, their tour continued to Korea, visiting Busan and Seoul, before entering Manchuria’s Mukden, Harbin, and Dairen. Unfortunately, Nishizu did not describe much of his reflections on the tour. What did an American <i>Nisei</i>, who experienced discrimination at home, think of Japan’s subjugation of other people across its empire?
+            </p>
+            
+            <div id="citations">
+              <h3>Citations</h3>
+              <span class="citation">1. Clarence Iwao Nishizu, Interview with Clarence Iwao Nishizu for the Japanese American Oral History Project, interview by Arthur A. Hansen, June 14, 1982, 156.</span>
+              <span class="citation">2. Ibid.</span>
+            </div>
+            </div>
           
         </div>
         
-        <div class="theme">
-          
-        </div>
-        
-        <div class="theme">
-          
-        </div>
+        <hr>
+    
+ 
       
       </section>
     </main>
     
       <footer>
-    &copy; Dylan Z. Siegel, 2022. All Rights Reserved. Version 0.1.1
+    &copy; Dylan Z. Siegel, 2022. All Rights Reserved. Version 1.0
     
   </footer>
     

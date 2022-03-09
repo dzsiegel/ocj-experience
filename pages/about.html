@@ -5,72 +5,120 @@
     <title>Orange County Japanese Experience, 1900-1950</title>
     <link href="../resources/style.css" type="text/css" rel="stylesheet">
     <meta charset="utf-8" lang="en">
+  
     
- 
     <!-- fonts, scripts, bootstrap, compatibility -->
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://kit.fontawesome.com/f21c084e96.js" crossorigin="anonymous"></script>
+
+    
+  <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Serif&display=swap" rel="stylesheet">
     
-   
+  <script src="../resources/hamburger-menu.js"></script>
+  <script src="../resources/readMore.js"></script>
     
   </head>
   
-  <body>
-     <header>
+  <body onload="AddReadMore()">
+    
+    
+  <header>
+       
+    <div id="desktop-header">
       <div class="branding">
-        <img src="../resources/logo/ocjalogov2-1.png">
+        <img alt="Orange County" src="../resources/logo/ocjalogov2-1.png">
         <div class="branding-text">
-        <h6>Japanese</h6>
-        <h6>Experience</h6>
-        <h6>1900-1950</h6>
+          <span>Japanese</span>
+          <span>Experience</span>
+          <span>1900-1950</span>
         </div>
-       </div>
+      </div>
       <nav id="desktop-nav">
         <ul class="nav">
-          <li><a href="index.html"><div class="hvr-underline-from-left">Intro</div></a></li>
-          <li><a href="pages/immigrant-narrative.html"><div class="hvr-underline-from-left">"Immigrant Narrative"</div></a></li>
-          <li><a href="pages/communities.html"><div class="hvr-underline-from-left">Communities</div></a></li>
-          <li><a href="pages/incarceration.html"><div class="hvr-underline-from-left">Incarceration</div></a></li>
-          <li><a href="pages/sources.html"><div class="hvr-underline-from-left">Sources</div></a></li>
-          <li><a href="pages/about.html"><div class="hvr-underline-from-left">About</div></a></li>
+          <li><a href="../index.html"><div class="hvr-underline-from-left">Intro</div></a></li>
+          <li><a href="./immigrant-narrative.html"><div class="hvr-underline-from-left">"Immigrant Narrative"</div></a></li>
+          <li><a href="./communities.html"><div class="hvr-underline-from-left">Communities</div></a></li>
+          <li><a href="./incarceration.html"><div class="hvr-underline-from-left">Incarceration</div></a></li>
+          <li><a href="./sources.html"><div class="hvr-underline-from-left">Sources</div></a></li>
+          <li><a href="./about.html"><div class="hvr-underline-from-left">About</div></a></li>
         </ul>
       </nav>
+    </div>
        
+    <div id="mobile-header">
+      <div class="branding">
+        <img alt="Orange County" src="../resources/logo/ocjalogov2-1.png">
+        <div class="branding-text">
+          <span>Japanese</span>
+          <span>Experience</span>
+          <span>1900-1950</span>
+        </div>
+      </div>
        <nav id="mobile-nav">
-        <input id="menu-toggle" type="checkbox" />
-        <label class="menu-button-container" for="menu-toggle">
-          <div class="menu-button"></div> 
-        </label>
-        <ul class="menu">
+         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+           <i class="fa-solid fa-bars fa-2xl"></i>
+         </a>
+         <ul id="myLinks">
           <li><a href="../index.html">Intro</a></li>
           <li><a href="./immigrant-narrative.html">"Immigrant Narrative"</a></li>
           <li><a href="./communities.html">Communities</a></li>
           <li><a href="./incarceration.html">Incarceration</a></li>
           <li><a href="./sources.html">Sources</a></li>
           <li><a href="./about.html">About</a></li>
-        </ul>
+         </ul>
+         
+         
        </nav>
       
+      </div>
+       
+       
     </header>
   
     
   
     <main>
-      <h2 class="title">About</h2>
+      <h1 class="title">About</h1>
 
     
       <section id="themes">
+        <div class="theme">
+        <p>My name is Dylan Siegel, the creator of this project. This project was researched and created from roughly October 2021 to March 2022. The project grew naturally out of my reading of oral histories from first and second-generation Japanese who lived and grew up in Orange County. As I read more oral histories, I realized how much information about each individual, their lives, and their communities was stored in those documents—both recordings and texts. So, I considered ways that I could re-represent the information that I was reading and share it widely. I landed on maps as one of the primary storytelling tools.</p> 
         
-        <p>tekisuto</p> <br>
+        <p>The project’s scope also became wider than I had initially intended. After completing an MA in East Asian Studies, focused on modern Japanese History, I returned to my hometown in Irvine, CA, searching for something to contribute my time towards. One day in August 2021, while visiting Crystal Cove State Beach, I learned of <a href="https://crystalcove.org/cottage-34-the-cultural-center/">Cottage #34</a>, which was previously a Japanese Language School and community building for the Japanese community along the coastline. This sparked my interest in not only the Japanese experience in Irvine, but also led me to question why I had learned next to nothing of local history during my K-12 education in Irvine. Inspired by Public Humanities and the wave of community history reckonings that has been sweeping the U.S. for two years now, I began to interrogate where the past of Irvine, a planned community, exists. Irvine’s aesthetics, in part, have contributed to the papering over of a tangible past in the city, which I believe this project may take a step towards counteracting. You can read a <a href="https://www.thefracturedmonolith.com/pages/dominating-a-city.html">longer critique of how the past is hidden in Irvine</a> on my personal website. While reading the oral histories, I realized that most of the narrations were not limited to Irvine, but were all around Orange County, so I expanded the scope of the project. </p>
+        </div>
+        <hr>
+        
+        
+        <div class="theme">
+        <h2>Terminology</h2>
 
-      
+        <p>I would also like to acknowledge that I am not an expert on Japanese-American studies or Asian-American studies and have come to this field with next to no historiographical knowledge. I decided to rely as much as possible upon the source base and derive my conclusions and themes from that alone. In that vein, I have made a couple lexical choices that may or may not be conventional. What is known as “evacuation,” “Japanese internment,” and so on, I have termed “incarceration.” I chose incarceration because both evacuation and Japanese internment are not sufficient to describe the nature of forced removal from one’s home. I also declined to use “concentration camp,” because that term seems to be understood as a shorthand for Nazi deathcamps, where prisoners were not fed properly, and routinely murdered and experimented upon. Additionally, multiple narrators of these oral histories described the Japanese evacuation camps as prisons, and noted the feeling of being imprisoned because of the armed guards.</p>
+        
+        <p>I also decided to call this project the Orange County Japanese Experience, rather than Japanese American Experience. First-generation immigrants were not legally considered Americans, and even descendants of those Japanese who were born in the U.S. faced discrimination or restrictions to their full civil rights. While today the “hyphenization” of nationalities and “American” is common and expected, it seems somewhat anachronistic to describe first-generation Japanese immigrants as “Japanese Americans” when mostly describing the period of 1900 and 1950, because they often experienced that time period as non-American Others. I have, however, decided to refer to those born in the U.S. between those years as Japanese-Americans, because they were legally allowed to own land—something very important to the farming communities of Orange County. This lexical decision then fairly closely aligns to how the government treated Japanese and their descendants at the time.</p>
+        </div>
+        <hr>
+        
+        <div class="theme">
+        <h2>Technically Speaking</h2>
+        <p>This website is hosted as a Github project. The website was built using HTML, CSS, and a bit of Javascript for special features. The site has been coded to be responsive to different screen sizes. The site has also been produced with accessibility guidelines in mind—it relies on W3C guidelines, has been coded with Aria screen-reader standards in mind to make it easily legible and navigable by screen readers, and utilized the Lighthouse Devtool to evaluate accessibility. I have also relied on open-source code bases and code that was written for my personal website, and cited those accordingly in the CSS file.</p>
+
+        <p>The maps have been built using both ArcGIS Pro and ArcGIS Online. They have undergone many, many iterations and much tinkering. The most important and difficult components of the maps to get working properly were the temporality of the data sets and the uncertainty of location displayed visually. Each data set was built manually in a separate excel file; each point or line was assigned a year-based begin and end attribute. Uncertainty is displayed only for points, and is visually represented by a larger circle and some transparency. This was initially produced by using Arcade in ArcGIS Pro, a coding language designed for visualizations in ArcGIS, but I transitioned to using Javascript in ArcGIS Online after some issues uploading my maps. Using one expression allowed for this uncertainty to be expressed visually, however, I manually added the expression to each point set after uploading the map to ArcGIS Online. I probably could have automated many of these processes, but owing to my limited knowledge of other programming languages and my ad-hoc usage of ArcGIS, manual entry was my best choice!</p>
+        </div>
+        
+        <hr>
+        
+        <div class="theme">
+        <h2>Contact</h2>
+          <p>If you have any comments about the website, its contents, or how it is presented, please contact me at dzsiegel AT gmail DOT com.</p>
+        </div>
       </section>
     </main>
     
       <footer>
-    &copy; Dylan Z. Siegel, 2022. All Rights Reserved. Version 0.1.1
+    &copy; Dylan Z. Siegel, 2022. All Rights Reserved. Version 1.0
     
   </footer>
     
