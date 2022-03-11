@@ -384,9 +384,10 @@ figcaption a {
   
   
 }
-
+/* 
 @media only screen and (max-height: 450px) {
   #map {
     height: 275px;
   }
 }
+*/
