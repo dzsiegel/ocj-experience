@@ -147,6 +147,7 @@ p {
 #map {
   width: 100%;
   overflow: hidden;
+  height: 601px;
 }
 
 h1.title {
@@ -203,6 +204,10 @@ figcaption {
   font-family: var(--main-font);
   font-size: .75rem;
   font-style: italic;
+}
+
+figcaption a {
+  font-size: .75rem;
 }
 
 .image-wrap {
@@ -375,5 +380,13 @@ figcaption {
   .image-wrap, .image-wrap-2, .image-wrap-top {
     padding: 0;
     width: 100%;
+  }
+  
+  
+}
+
+@media only screen and (max-height: 450px) {
+  #map {
+    height: 275px;
   }
 }
