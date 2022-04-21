@@ -377,7 +377,7 @@ figcaption a {
 
 /* media rules */
 
-@media only screen and (min-width: 1410px) {
+@media only screen and (min-width: 2010px) {
   .image-wrap-top {
     display: none;
   }
@@ -417,6 +417,10 @@ figcaption a {
     padding: 0px 10px;
   }
   
+  .branding img {
+  padding-left: 5px;
+}
+
   
 }
 
