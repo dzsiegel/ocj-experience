@@ -308,6 +308,10 @@ figcaption a {
   color: var(--accent-color-1);
 }
 
+.sources a:visited {
+  color: var(--accent-color-2);
+}
+
 /* special stuff */
 /* below this line */
 
