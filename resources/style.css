@@ -10,6 +10,7 @@
 
 html {
   --header-height: 80px;
+  --negative-header-height: -80px;
   --main-font: "IBM Plex Serif", "Times new Roman", serif;
   --header-font: "Bebas Neue", "Trebuchet MS", sans-serif;
   --main-background-color: hsla(15, 15%, 90%);
@@ -165,7 +166,11 @@ h2 {
 }
 
 .theme p {
-  margin-top: 1rem;
+  margin: 1rem 0rem;
+}
+
+.theme:first {
+  margin: 0;
 }
 
 .theme blockquote {
@@ -189,11 +194,46 @@ footer {
   
 }
 
+figcaption a, p a {
+  color: var(--accent-color-1);
+}
+
+figcaption a:hover, p a:hover {
+  color: var(--accent-color-2);
+}
+
+figcaption a:visited, p a:visited {
+  color: var(--accent-color-2);
+}
+
+
 main hr {
   border: .5px solid black;
   margin-bottom: 1rem;
 }
 
+details, summary {
+  font-family: var(--main-font);
+}
+
+details {
+  font-size: .88rem;
+  padding: 15px 0px;
+}
+
+summary {
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#akiyama::before,  #fujii::before, #furuta::before, #amy-ishii::before, #charles-ishii::before, #iwatsuru::before, #kanegae::before, #kamei::before, #hyotaro-kaneko::before, #mine-kaneko::before, #george-kanno::before, #james-kanno::before, #maki-kanno::before, #kikuchi::before, #kishiyama::before, #kobayashi::before, #masukawa::before, #munemitsu::before, #nishizu::before, #anita-shepardson::before, #the-nittas::before, #hitoshi-nitta::before, #mary-nitta::before, #minoru-nitta::before, #mitsuo-nitta::before, #shigekawa::before, #takahashi::before, #tashima::before, #uno::before, #yamada::before, #yoshida::before, #yoshitomi::before {
+  content: "";
+  display: block;
+  height: 90px;
+  margin-top: -90px;
+  visibility: hidden;
+}
 
 
 /* image rules */
@@ -384,10 +424,9 @@ figcaption a {
   
   
 }
-/* 
+
 @media only screen and (max-height: 450px) {
   #map {
     height: 275px;
   }
 }
-*/
