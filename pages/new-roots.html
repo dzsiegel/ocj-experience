@@ -2,9 +2,9 @@
 
 <html lang="en">
   <head>
-    <title>Orange County Japanese Experience, 1900-1950</title>
+    <title>New Roots | Orange County Japanese Experience, 1900–1950</title>
     <link href="../resources/style.css" type="text/css" rel="stylesheet">
-    <meta charset="utf-8" lang="en">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <!-- fav icon --> 
@@ -38,14 +38,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Serif&display=swap" rel="stylesheet">
     
-  <script src="../resources/hamburger-menu.js"></script>
-  <script src="../resources/readMore.js"></script>
+  <script src="../resources/hamburger-menu.js" defer></script>
+  <script src="../resources/readMore.js" defer></script>
     
   </head>
   
-  <body onload="AddReadMore()">
-    
-    
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <header>
        
     <div id="desktop-header">
@@ -57,15 +57,15 @@
           <span>1900-1950</span>
         </div>
       </div>
-      <nav id="desktop-nav">
+      <nav id="desktop-nav" aria-label="Main navigation">
         <ul class="nav">
-          <li><a href="../index.html"><div class="hvr-underline-from-left">Intro</div></a></li>
-          <li><a href="./new-roots.html"><div class="hvr-underline-from-left">New Roots</div></a></li>
-          <li><a href="./communities.html"><div class="hvr-underline-from-left">Communities</div></a></li>
-          <li><a href="./incarceration.html"><div class="hvr-underline-from-left">Incarceration</div></a></li>
-          <li><a href="./people.html"><div class="hvr-underline-from-left">People</div></a></li>
-          <li><a href="./sources.html"><div class="hvr-underline-from-left">Sources</div></a></li>
-          <li><a href="./about.html"><div class="hvr-underline-from-left">About</div></a></li>
+          <li><a href="../index.html"><span class="hvr-underline-from-left">Intro</span></a></li>
+          <li><a href="./new-roots.html"><span class="hvr-underline-from-left active">New Roots</span></a></li>
+          <li><a href="./communities.html"><span class="hvr-underline-from-left">Communities</span></a></li>
+          <li><a href="./incarceration.html"><span class="hvr-underline-from-left">Incarceration</span></a></li>
+          <li><a href="./people.html"><span class="hvr-underline-from-left">People</span></a></li>
+          <li><a href="./sources.html"><span class="hvr-underline-from-left">Sources</span></a></li>
+          <li><a href="./about.html"><span class="hvr-underline-from-left">About</span></a></li>
         </ul>
       </nav>
     </div>
@@ -79,10 +79,10 @@
           <span>1900-1950</span>
         </div>
       </div>
-       <nav id="mobile-nav">
-         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-           <i class="fa-solid fa-bars fa-2xl"></i>
-         </a>
+       <nav id="mobile-nav" aria-label="Mobile navigation">
+         <button class="icon" aria-label="Toggle navigation menu" aria-expanded="false">
+           <i class="fa-solid fa-bars fa-2xl" aria-hidden="true"></i>
+         </button>
          <ul id="myLinks">
           <li><a href="../index.html">Intro</a></li>
           <li><a href="./new-roots.html">New Roots</a></li>
@@ -103,25 +103,24 @@
   
     
   
-    <main>
+    <main id="main-content">
       <h1 class="title">New Roots</h1>
-      <div id="themes">
+      <section id="themes">
         <div class="theme">
       <p>This section especially highlights first-generation Japanese and their lives. The map displays a group of people that grew up in Japan and migrated to the U.S. Their lives seem particularly precarious in retrospect, since many of those that came to the U.S. without ties—or even with ties—began working as traveling farm labor. Perhaps many of the people in this section made durable connections in their community, became relatively successful, and most of all, probably owned land. Those things allowed them to plant their lives in Orange County. </p>
       </div>
-      </div>
-        
+      </section>
+
       <section id="map">
       
-      <iframe title="Interactive Map focused on Immigration Patterns from Japan to the U.S." src="https://yalemaps.maps.arcgis.com/apps/webappviewer/index.html?id=bf4f9389ce9e4ff88da7b8dba49f39ab" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen>iFrames are not supported on this page.</iframe>
+      <iframe title="Interactive Map focused on Immigration Patterns from Japan to the U.S." src="https://yalemaps.maps.arcgis.com/apps/webappviewer/index.html?id=bf4f9389ce9e4ff88da7b8dba49f39ab" width="100%" height="100%" style="border:0" allowfullscreen>iFrames are not supported on this page.</iframe>
         
       </section>
     
-      <section id="themes">
+      <section class="themes">
 
-        
         <div class="theme">
-          
+
           <h2>Mobility, Impermanence</h2>
           <div class="readMore">
           <p>The first generation of Japanese who moved to the U.S. could have moved for many reasons.</p>
@@ -168,7 +167,7 @@
           <p>By a wide margin, Orange County’s prewar residents were farmers. That was true of Japanese immigrants, too, whether they worked as laborers, or owned/leased hundreds of acres to make up a small farming empire. They farmed in the foothills north of the Santiago range, along the coast of the Irvine Ranch in Crystal Cove, and in the flatlands from Smeltzer (Huntington Beach) to Wintersburg (Westminster/Fountain Valley), to Santa Ana. Their labor netted them everything from tomatoes to citrus and peppers to asparagus, often folding in many other vegetables and fruits. Strawberries proved to be one of the most profitable crops, one that Irvine’s Tanaka farms is still known for. The Nitta family’s Greenspear Farms pulled its name from the spears of asparagus they harvested. Charles Ishii and Clarence Iwao Nishizu each made out well growing peppers and often had their own pepper drying operations. Of course, some areas of the county were better suited to particular crops. Henry Kiyomi Akiyama described Garden Grove farmers as frequently raising chili peppers, and those in Anaheim dealing with orchards, such as citrus trees. Akiyama was a unique “farmer” among his peers, since he raised goldfish on 20 acres of ponds, exporting them up and down the west coast. Akiyama’s business also needed administrative help, so he hired a couple white people to help. He credited his hiring white people with keeping him from being incarcerated in a so-called “enemy alien camp,” for those suspected of having suspicious connections to Japan—different than family camps like Poston.</p>
           
           <figure class="image-wrap">
-            <img class="text-image" src="../resources/photos/farmhands.jpg" alt="">
+            <img class="text-image" src="../resources/photos/farmhands.jpg" loading="lazy" alt="Orange pickers on a Santa Ana Orange grove, circa 1912. Shuji Kanno is pictured fourth from left.">
             <figcaption>"Orange pickers on a Santa Ana Orange grove." ~1912. Shuji Kanno is pictured, 4th from left, presumably husband of Maki Kanno. Courtesy of <a href="https://coph.fullerton.edu/">The Lawrence de Graaf Center for Oral and Public History, California State University, Fullerton.</a> </figcaption>
           
           </figure>
@@ -187,7 +186,7 @@
           <p>As mentioned in a section above, one of the main reasons that women came to the U.S. as <i>Issei</i> was because of marriage. The marriages were often arranged before the couple left to the U.S. or when the future husband returned to Japan seeking a wife. Some narrators seemed to be somewhat embarrassed about the picture bride custom or emphasized that they were not picture brides. Still, several women were more open. Shizu Kamei described the picture bride arrangement as an “extension” of Japanese customs arranging marriages between families. Yoneko Dobashi Iwatsuru related her mother’s experience, saying that “my mother would jokingly tell me that she and a group of girls came together as picture brides, and that they all thought that, if it all didn't work out, they'd just turn around and go back to Japan."<sup>1</sup> Even if women had time to meet and understand their husbands in Japan, the transition to the U.S. could be jarring, especially for those who were not used to farm life. Yukiko Furuta, who came to the U.S. in 1912 at the age of 17 with Mr. Furuta, who was age 31, explained that she was a shut-in. Related through a translator, Furuta’s experience was this:</p>
           
           <figure class="image-wrap-2">
-            <img src="../resources/photos/woman-children.jpg" class="text-image" alt='A photo of a Japanese woman with children. 1937. Courtesy of The Lawrence de Graaf Center for Oral and Public History, California State University, Fullerton.'>
+            <img src="../resources/photos/woman-children.jpg" class="text-image" loading="lazy" alt='A photo of a Japanese woman with children. 1937. Courtesy of The Lawrence de Graaf Center for Oral and Public History, California State University, Fullerton.'>
             <figcaption>"Woman with children." 1937. Courtesy of <a href="https://coph.fullerton.edu/">The Lawrence de Graaf Center for Oral and Public History, California State University, Fullerton.</a></figcaption>
           </figure>
           
@@ -212,7 +211,7 @@
     </main>
     
       <footer>
-    &copy; Dylan Z. Siegel, 2022. All Rights Reserved. Version 1.1.0
+    &copy; Dylan Z. Siegel, 2026. All Rights Reserved. Version 1.1.0
     
   </footer>
     

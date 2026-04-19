@@ -2,9 +2,9 @@
 
 <html lang="en">
   <head>
-    <title>Orange County Japanese Experience, 1900-1950</title>
+    <title>Incarceration | Orange County Japanese Experience, 1900–1950</title>
     <link href="../resources/style.css" type="text/css" rel="stylesheet">
-    <meta charset="utf-8" lang="en">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     
     <!-- fav icon --> 
@@ -38,14 +38,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Serif&display=swap" rel="stylesheet">
     
-  <script src="../resources/hamburger-menu.js"></script>
-  <script src="../resources/readMore.js"></script>
+  <script src="../resources/hamburger-menu.js" defer></script>
+  <script src="../resources/readMore.js" defer></script>
     
   </head>
   
-  <body onload="AddReadMore()">
-    
-    
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <header>
        
     <div id="desktop-header">
@@ -57,15 +57,15 @@
           <span>1900-1950</span>
         </div>
       </div>
-      <nav id="desktop-nav">
+      <nav id="desktop-nav" aria-label="Main navigation">
         <ul class="nav">
-          <li><a href="../index.html"><div class="hvr-underline-from-left">Intro</div></a></li>
-          <li><a href="./new-roots.html"><div class="hvr-underline-from-left">New Roots</div></a></li>
-          <li><a href="./communities.html"><div class="hvr-underline-from-left">Communities</div></a></li>
-          <li><a href="./incarceration.html"><div class="hvr-underline-from-left">Incarceration</div></a></li>
-          <li><a href="./people.html"><div class="hvr-underline-from-left">People</div></a></li>
-          <li><a href="./sources.html"><div class="hvr-underline-from-left">Sources</div></a></li>
-          <li><a href="./about.html"><div class="hvr-underline-from-left">About</div></a></li>
+          <li><a href="../index.html"><span class="hvr-underline-from-left">Intro</span></a></li>
+          <li><a href="./new-roots.html"><span class="hvr-underline-from-left">New Roots</span></a></li>
+          <li><a href="./communities.html"><span class="hvr-underline-from-left">Communities</span></a></li>
+          <li><a href="./incarceration.html"><span class="hvr-underline-from-left active">Incarceration</span></a></li>
+          <li><a href="./people.html"><span class="hvr-underline-from-left">People</span></a></li>
+          <li><a href="./sources.html"><span class="hvr-underline-from-left">Sources</span></a></li>
+          <li><a href="./about.html"><span class="hvr-underline-from-left">About</span></a></li>
         </ul>
       </nav>
     </div>
@@ -79,10 +79,10 @@
           <span>1900-1950</span>
         </div>
       </div>
-       <nav id="mobile-nav">
-         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-           <i class="fa-solid fa-bars fa-2xl"></i>
-         </a>
+       <nav id="mobile-nav" aria-label="Mobile navigation">
+         <button class="icon" aria-label="Toggle navigation menu" aria-expanded="false">
+           <i class="fa-solid fa-bars fa-2xl" aria-hidden="true"></i>
+         </button>
          <ul id="myLinks">
           <li><a href="../index.html">Intro</a></li>
           <li><a href="./new-roots.html">New Roots</a></li>
@@ -103,7 +103,7 @@
   
     
   
-    <main>
+    <main id="main-content">
       <h1 class="title">Incarceration</h1>
       
     <section id="themes">
@@ -119,7 +119,7 @@
       
       <section id="map">
       
-      <iframe title="Interactive Map of Orange County Japanese people's movements, focused on the wartime years"src="https://yalemaps.maps.arcgis.com/apps/webappviewer/index.html?id=56958096d1f749c68c19612e9ff2cdc3" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen>iFrames are not supported on this page.</iframe>
+      <iframe title="Interactive Map of Orange County Japanese people's movements, focused on the wartime years" src="https://yalemaps.maps.arcgis.com/apps/webappviewer/index.html?id=56958096d1f749c68c19612e9ff2cdc3" width="100%" height="100%" style="border:0" allowfullscreen>iFrames are not supported on this page.</iframe>
         
       </section>
     
@@ -131,7 +131,7 @@
             <p>Many accounts show that Japanese were forced to sell their belongings at extremely cheap prices right before incarceration. Orange County people were no different, but if they were lucky enough to keep many of their tools for farming or appliances in their home, it was because they had an arrangement or some long term right to the land they lived on. Still, many returned home to find missing or damaged appliances.</p>
             
             <figure class="image-wrap-2">
-            <img src="../resources/photos/poston-2.jpg" alt=' "Poston, Arizona. Site Number 1, Camp Number 1, facing Southeast." April 24, 1942. Fred Clark, War Relocation Authority Photographer, Department of the Interior. War Relocation Authority. Public Domain. ' class="text-image">
+            <img src="../resources/photos/poston-2.jpg" alt='"Poston, Arizona. Site Number 1, Camp Number 1, facing Southeast." April 24, 1942. Fred Clark, War Relocation Authority Photographer, Department of the Interior. War Relocation Authority. Public Domain.' class="text-image" loading="lazy">
             <figcaption>"Poston, Arizona. Site Number 1, Camp Number 1, facing Southeast." April 24, 1942. Fred Clark, War Relocation Authority Photographer, Department of the Interior. War Relocation Authority. Public Domain.</figcaption>
           </figure>
             
@@ -200,7 +200,7 @@
             <p>As there were cleavages between <i>Kibei</i> and other generations of Japanese in America, so too there were cleavages between these groups while incarcerated. In general, narrators tended to agree that the <i>Kibei</i> were far more resistant and critical of incarceration, which seemed to present a lot of uncomfortable situations throughout the camps.</p>
             
             <figure class="image-wrap">
-            <img src="../resources/photos/poston-1.jpg" class="text-image" alt=' "Poston, Arizona. Landscaping done by residents of Camp Number 1." December 31, 1942. Francis Stewart, War Relocation Authority Photographer, Department of the Interior, War Relocation Authority. Public Domain.'>
+            <img src="../resources/photos/poston-1.jpg" class="text-image" loading="lazy" alt='"Poston, Arizona. Landscaping done by residents of Camp Number 1." December 31, 1942. Francis Stewart, War Relocation Authority Photographer, Department of the Interior, War Relocation Authority. Public Domain.'>
             <figcaption>"Poston, Arizona. Landscaping done by residents of Camp Number 1." December 31, 1942. Francis Stewart, War Relocation Authority Photographer, Department of the Interior, War Relocation Authority. Public Domain.</figcaption>
               </figure>
             
@@ -258,7 +258,7 @@
               <p>James Kanno believed that part of the reason incarceration took place was because of “economic pressure.”<sup>1</sup> Kanno said that a large percentage of acreage was farmed by the Japanese around Orange County and that much of the produce handled at, for example, the Los Angeles wholesale market, was handled by Japanese. Moreover, many Japanese participated in the fishing industry around Terminal Island. As Kanno put it, “I think possibly too strong a competition in some areas didn’t help.”<sup>2</sup> In other words, he suggested that Japanese were incarcerated partially to alleviate economic discontent among white voters by freeing profitable farmland.</p>
               
               <figure class="image-wrap">
-                <img class="text-image" src="../resources/photos/poston-3.jpg" alt='Photo of Incarcerated Japanese preparing to return to their homes from Poston. September 1945. Hikaru Iwasaki. Public Domain.'>
+                <img class="text-image" src="../resources/photos/poston-3.jpg" loading="lazy" alt='Incarcerated Japanese preparing to return to their homes from Poston. September 1945. Hikaru Iwasaki. Public Domain.'>
                 <figcaption>Incarcerated Japanese preparing to return to their homes from Poston. September 1945. Hikaru Iwasaki. Public Domain. </figcaption>
               </figure>
               
@@ -286,7 +286,7 @@
     </main>
     
       <footer>
-    &copy; Dylan Z. Siegel, 2022. All Rights Reserved. Version 1.1.0
+    &copy; Dylan Z. Siegel, 2026. All Rights Reserved. Version 1.1.0
     
   </footer>
     

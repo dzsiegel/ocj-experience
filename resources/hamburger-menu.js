@@ -1,9 +1,13 @@
+'use strict';
 
-function myFunction() {
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.querySelector('#mobile-nav .icon');
+  const menu = document.getElementById('myLinks');
+  if (!btn || !menu) return;
+
+  btn.addEventListener('click', () => {
+    const isOpen = menu.classList.contains('nav-open');
+    menu.classList.toggle('nav-open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+});

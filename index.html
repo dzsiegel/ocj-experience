@@ -2,9 +2,9 @@
 
 <html lang="en">
   <head>
-    <title>Orange County Japanese Experience, 1900-1950</title>
+    <title>Introduction | Orange County Japanese Experience, 1900–1950</title>
     <link href="./resources/style.css" type="text/css" rel="stylesheet">
-    <meta charset="utf-8" lang="en">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     
     <!-- fav icon --> 
@@ -38,14 +38,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Serif&display=swap" rel="stylesheet">
     
-  <script src="./resources/hamburger-menu.js"></script>
-  <script src="./resources/readMore.js"></script>
+  <script src="./resources/hamburger-menu.js" defer></script>
+  <script src="./resources/readMore.js" defer></script>
     
   </head>
   
-  <body onload="AddReadMore()">
-    
-    
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <header>
        
     <div id="desktop-header">
@@ -57,15 +57,15 @@
           <span>1900-1950</span>
         </div>
       </div>
-      <nav id="desktop-nav">
+      <nav id="desktop-nav" aria-label="Main navigation">
         <ul class="nav">
-          <li><a href="../index.html"><div class="hvr-underline-from-left">Intro</div></a></li>
-          <li><a href="./pages/new-roots.html"><div class="hvr-underline-from-left">New Roots</div></a></li>
-          <li><a href="./pages/communities.html"><div class="hvr-underline-from-left">Communities</div></a></li>
-          <li><a href="./pages/incarceration.html"><div class="hvr-underline-from-left">Incarceration</div></a></li>
-          <li><a href="./pages/people.html"><div class="hvr-underline-from-left">People</div></a></li>
-          <li><a href="./pages/sources.html"><div class="hvr-underline-from-left">Sources</div></a></li>
-          <li><a href="./pages/about.html"><div class="hvr-underline-from-left">About</div></a></li>
+          <li><a href="./index.html"><span class="hvr-underline-from-left active">Intro</span></a></li>
+          <li><a href="./pages/new-roots.html"><span class="hvr-underline-from-left">New Roots</span></a></li>
+          <li><a href="./pages/communities.html"><span class="hvr-underline-from-left">Communities</span></a></li>
+          <li><a href="./pages/incarceration.html"><span class="hvr-underline-from-left">Incarceration</span></a></li>
+          <li><a href="./pages/people.html"><span class="hvr-underline-from-left">People</span></a></li>
+          <li><a href="./pages/sources.html"><span class="hvr-underline-from-left">Sources</span></a></li>
+          <li><a href="./pages/about.html"><span class="hvr-underline-from-left">About</span></a></li>
         </ul>
       </nav>
     </div>
@@ -79,10 +79,10 @@
           <span>1900-1950</span>
         </div>
       </div>
-       <nav id="mobile-nav">
-         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-           <i class="fa-solid fa-bars fa-2xl"></i>
-         </a>
+       <nav id="mobile-nav" aria-label="Mobile navigation">
+         <button class="icon" aria-label="Toggle navigation menu" aria-expanded="false">
+           <i class="fa-solid fa-bars fa-2xl" aria-hidden="true"></i>
+         </button>
          <ul id="myLinks">
           <li><a href="./index.html">Intro</a></li>
           <li><a href="./pages/new-roots.html">New Roots</a></li>
@@ -103,7 +103,7 @@
   
     
   
-    <main>
+    <main id="main-content">
       <h1 class="title">Introduction</h1>
       
       <section id="themes">
@@ -132,12 +132,12 @@
       </section>
       
       <section id="map">
-      
-      <iframe title="Interactive Map of Pre-war Orange County Japanese Locations and Movements" src="https://yalemaps.maps.arcgis.com/apps/webappviewer/index.html?id=d449e9714c224386bc883ea1b5e210d0" width="100%" height="601" frameborder="0" style="border:0" allowfullscreen>iFrames are not supported on this page.</iframe> <br><br>
-        
+
+      <iframe title="Interactive Map of Pre-war Orange County Japanese Locations and Movements" src="https://yalemaps.maps.arcgis.com/apps/webappviewer/index.html?id=d449e9714c224386bc883ea1b5e210d0" width="100%" height="601" style="border:0" allowfullscreen>iFrames are not supported on this page.</iframe>
+
       </section>
-    
-      <section id="themes">
+
+      <section class="themes">
         <div class="theme">
         <p>Using each oral narrative, which told the story of an individual, their community institutions, and their parents’ lives, I was able to create reasonably precise maps for this project. Sometimes their accounts could pinpoint an address or an intersection where they lived for just a few months, and other times it was as vague as an entire state! But as I began to read through oral histories and create maps, I realized that the narratives contain an inestimable amount of information about the Orange County Japanese and Japanese American community before and after World War Two, along with significant descriptions of their lifeways. That is how the many themes and subthemes for this project came about—naturally from reading a selection of almost thirty people’s accounts of their world.</p> 
         
@@ -156,7 +156,7 @@
     </main>
     
       <footer>
-    &copy; Dylan Z. Siegel, 2022. All Rights Reserved. Version 1.1.0
+    &copy; Dylan Z. Siegel, 2026. All Rights Reserved. Version 1.1.0
     
   </footer>
     
