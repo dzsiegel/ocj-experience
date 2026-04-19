@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Japanese Language Schools in Prewar Orange County</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css" rel="stylesheet">
+  <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+    #map { position: absolute; inset: 0; }
+
+    #splash {
+      position: absolute; inset: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.45);
+    }
+    #splash-box {
+      background: #2c2c2c;
+      color: ghostwhite;
+      padding: 1.5rem 2rem;
+      max-width: 480px;
+      border-radius: 4px;
+      text-align: center;
+      font-family: sans-serif;
+      line-height: 1.55;
+    }
+    #splash-box p { font-size: 0.95rem; margin-bottom: 0.75rem; }
+    #splash-ok {
+      background: ghostwhite; color: #2c2c2c;
+      border: none; padding: 0.4rem 1.6rem;
+      cursor: pointer; border-radius: 3px;
+      font-size: 0.9rem; margin-top: 0.25rem;
+    }
+    #splash-ok:hover { background: #ddd; }
+
+    #legend {
+      position: absolute; bottom: 28px; left: 10px;
+      background: rgba(30,30,30,0.88);
+      color: ghostwhite;
+      padding: 0.45rem 0.7rem;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-family: sans-serif;
+      pointer-events: none;
+    }
+    .leg-item { display: flex; align-items: center; gap: 6px; margin: 3px 0; }
+    .leg-circle-certain {
+      width: 15px; height: 15px; border-radius: 50%; flex-shrink: 0;
+      background: #4a90d9; border: 2px solid ghostwhite;
+    }
+    .leg-circle-uncertain {
+      width: 15px; height: 15px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(255,0,0,0.75); border: 1px solid #1a1a1a;
+    }
+
+    .maplibregl-popup-content { font-family: sans-serif; padding: 0.75rem; max-width: 300px; }
+    .pop-title { font-weight: bold; font-size: 1rem; margin-bottom: 0.4rem; }
+    .pop-field { font-size: 0.82rem; margin: 0.15rem 0; }
+    .pop-label { color: #666; }
+    .pop-desc { font-size: 0.8rem; margin-top: 0.45rem; padding-top: 0.4rem; border-top: 1px solid #e0e0e0; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <div id="splash">
+    <div id="splash-box">
+      <p>This map includes known Japanese language schools around Orange County during the prewar. Some schools' exact begin and end dates are unknown.</p>
+      <p><strong>Click</strong> a <strong>point</strong> or <strong>school!</strong></p>
+      <p><strong>Uncertain</strong> latitude and longitude points are displayed as circles instead of schools.</p>
+      <button id="splash-ok">OK</button>
+    </div>
+  </div>
+
+  <div id="legend">
+    <div class="leg-item"><span class="leg-circle-certain"></span> Certain location</div>
+    <div class="leg-item"><span class="leg-circle-uncertain"></span> Uncertain location</div>
+  </div>
+
+  <script>
+    document.getElementById('splash-ok').addEventListener('click', () => {
+      document.getElementById('splash').style.display = 'none';
+    });
+
+    const map = new maplibregl.Map({
+      container: 'map',
+      style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+      center: [-117.87, 33.72],
+      zoom: 10
+    });
+
+    map.addControl(new maplibregl.NavigationControl(), 'top-left');
+    map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }), 'bottom-right');
+
+    map.on('load', initLayers);
+
+    function initLayers() {
+      map.addSource('schools', {
+        type: 'geojson',
+        data: '../map-data/OCJ_Language_Schools_v0_1_WFL1.geojson'
+      });
+
+      map.addLayer({
+        id: 'schools-uncertain',
+        type: 'circle',
+        source: 'schools',
+        filter: ['==', ['get', 'Lat_Long_Uncertainty'], 'Yes'],
+        paint: {
+          'circle-radius': 7.5,
+          'circle-color': 'rgba(255,0,0,0.75)',
+          'circle-stroke-color': 'rgba(26,26,26,1)',
+          'circle-stroke-width': 1
+        }
+      });
+
+      map.addLayer({
+        id: 'schools-certain',
+        type: 'circle',
+        source: 'schools',
+        filter: ['==', ['get', 'Lat_Long_Uncertainty'], 'No'],
+        paint: {
+          'circle-radius': 9,
+          'circle-color': '#4a90d9',
+          'circle-stroke-color': 'ghostwhite',
+          'circle-stroke-width': 2
+        }
+      });
+
+      ['schools-certain', 'schools-uncertain'].forEach(id => {
+        map.on('click', id, e => {
+          const p = e.features[0].properties;
+          const desc = p.Description
+            ? '<div class="pop-desc">' + p.Description + '</div>'
+            : '';
+          new maplibregl.Popup({ maxWidth: '320px' })
+            .setLngLat(e.lngLat)
+            .setHTML(
+              '<div class="pop-title">' + p.Location + '</div>' +
+              '<div class="pop-field"><span class="pop-label">Years active:</span> ' + p.Year_Begin + ' \u2013 ' + p.Year_End + '</div>' +
+              '<div class="pop-field"><span class="pop-label">Lat/Long uncertain:</span> ' + p.Lat_Long_Uncertainty + '</div>' +
+              desc
+            )
+            .addTo(map);
+        });
+        map.on('mouseenter', id, () => { map.getCanvas().style.cursor = 'pointer'; });
+        map.on('mouseleave', id, () => { map.getCanvas().style.cursor = ''; });
+      });
+    }
+  </script>
+</body>
+</html>

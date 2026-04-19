@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OC Japanese Experience – Clarence Iwao Nishizu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css" rel="stylesheet">
+  <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: sans-serif; }
+    #map { position: absolute; inset: 0; }
+
+    #loading {
+      position: absolute; inset: 0; z-index: 20;
+      display: flex; align-items: center; justify-content: center;
+      background: #1a1a1a; color: ghostwhite; font-size: 1rem;
+    }
+
+    #splash {
+      position: absolute; inset: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.5);
+    }
+    #splash-box {
+      background: #2c2c2c; color: ghostwhite;
+      padding: 1.5rem 2rem; max-width: 500px;
+      border-radius: 4px; text-align: center; line-height: 1.55;
+    }
+    #splash-box p { font-size: 0.93rem; margin-bottom: 0.75rem; }
+    #splash-ok {
+      background: ghostwhite; color: #2c2c2c;
+      border: none; padding: 0.4rem 1.6rem;
+      cursor: pointer; border-radius: 3px; font-size: 0.9rem; margin-top: 0.25rem;
+    }
+    #splash-ok:hover { background: #ddd; }
+
+    /* ── Time control ── */
+    #time-ctrl {
+      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+      background: rgba(30,30,30,0.92); color: ghostwhite;
+      padding: 0.6rem 1rem 0.55rem;
+      border-radius: 6px; display: flex; flex-direction: column; align-items: center;
+      gap: 5px; min-width: 280px; max-width: 420px; width: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    #tc-labels { display: flex; justify-content: space-between; width: 100%; font-size: 1.1rem; font-weight: bold; }
+    #tc-separator { opacity: 0.5; }
+
+    /* Dual-range slider */
+    .dual-range { position: relative; width: 100%; height: 20px; }
+    .dual-range-track {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 100%; height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px;
+    }
+    .dual-range-fill {
+      position: absolute; top: 0; height: 100%;
+      background: #4a90d9; border-radius: 2px; pointer-events: none;
+    }
+    .dual-range input[type=range] {
+      -webkit-appearance: none; appearance: none;
+      position: absolute; top: 50%; transform: translateY(-50%);
+      left: 0; width: 100%; height: 4px;
+      background: transparent; pointer-events: none; outline: none; margin: 0; padding: 0;
+    }
+    .dual-range input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%;
+      background: #4a90d9; border: 2px solid white; cursor: pointer; pointer-events: all;
+    }
+    .dual-range input[type=range]::-moz-range-thumb {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #4a90d9; border: 2px solid white; cursor: pointer; pointer-events: all;
+    }
+    .dual-range input[type=range]:disabled::-webkit-slider-thumb { opacity: 0.35; cursor: default; }
+    .dual-range input[type=range]:disabled::-moz-range-thumb    { opacity: 0.35; cursor: default; }
+
+    #tc-row { display: flex; gap: 6px; }
+    #tc-row button {
+      background: rgba(255,255,255,0.12); color: ghostwhite;
+      border: 1px solid rgba(255,255,255,0.2); border-radius: 3px;
+      padding: 0.2rem 0.6rem; cursor: pointer; font-size: 0.8rem;
+    }
+    #tc-row button:hover { background: rgba(255,255,255,0.22); }
+    #tc-play { min-width: 72px; }
+    #tc-mode {
+      background: rgba(74,144,217,0.22); border-color: rgba(74,144,217,0.5);
+      min-width: 90px;
+    }
+    #tc-mode.cumulative {
+      background: rgba(46,204,113,0.22); border-color: rgba(46,204,113,0.5);
+    }
+    #tc-hint { font-size: 0.65rem; opacity: 0.55; }
+
+    /* ── Legend ── */
+    #legend {
+      position: absolute; bottom: 36px; left: 10px;
+      background: rgba(30,30,30,0.88); color: ghostwhite;
+      padding: 0.45rem 0.7rem; border-radius: 4px; font-size: 0.78rem;
+      pointer-events: none;
+    }
+    .leg-item { display: flex; align-items: center; gap: 6px; margin: 3px 0; }
+    .leg-dot-certain   { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; background: #4a90d9; border: 1px solid rgba(26,26,26,0.8); }
+    .leg-dot-uncertain { width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; background: rgba(74,144,217,0.5); border: 1px solid rgba(26,26,26,0.8); }
+    .leg-line { width: 18px; height: 3px; flex-shrink: 0; background: #f5a623; border-radius: 2px; }
+
+    /* ── Popups ── */
+    .maplibregl-popup-content { font-family: sans-serif; padding: 0.75rem; max-width: 300px; }
+    .pop-narrator { font-size: 0.75rem; font-style: italic; margin-bottom: 0.3rem; color: #4a90d9; }
+    .pop-title  { font-weight: bold; font-size: 0.95rem; margin-bottom: 0.35rem; }
+    .pop-field  { font-size: 0.8rem; margin: 0.15rem 0; }
+    .pop-label  { color: #888; }
+    .pop-desc   { font-size: 0.78rem; margin-top: 0.4rem; padding-top: 0.35rem; border-top: 1px solid #e0e0e0; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <div id="loading">Loading map data&hellip;</div>
+
+  <div id="splash">
+    <div id="splash-box">
+      <p>This map displays the interesting and varied life of <strong>Clarence Iwao Nishizu</strong>, who traveled widely around the U.S. and the Japanese Empire.</p>
+      <p><strong>Click</strong> a <strong>point</strong> or <strong>line!</strong> Uncertain locations are displayed larger and more transparent.</p>
+      <p>Use the <strong>time range slider</strong> at the bottom to follow his journey. Switch to <strong>Cumulative</strong> mode to watch his stops accumulate forward in time.</p>
+      <button id="splash-ok">OK</button>
+    </div>
+  </div>
+
+  <div id="time-ctrl" style="display:none">
+    <div id="tc-labels">
+      <span id="tc-start-label">1883</span>
+      <span id="tc-separator">&nbsp;&ndash;&nbsp;</span>
+      <span id="tc-end-label">1988</span>
+    </div>
+    <div class="dual-range" id="tc-range">
+      <div class="dual-range-track"><div class="dual-range-fill" id="tc-fill"></div></div>
+      <input type="range" id="tc-start" min="1883" max="1988" value="1883" step="1">
+      <input type="range" id="tc-end"   min="1883" max="1988" value="1988" step="1">
+    </div>
+    <div id="tc-row">
+      <button id="tc-prev" title="Shift range back one year">&#9664;</button>
+      <button id="tc-play">&#9654; Play</button>
+      <button id="tc-next" title="Shift range forward one year">&#9654;</button>
+      <button id="tc-mode" title="Toggle time filter mode">Window</button>
+    </div>
+    <div id="tc-hint">Drag either handle &bull; Play slides the window forward</div>
+  </div>
+
+  <div id="legend" style="display:none">
+    <div class="leg-item"><span class="leg-dot-certain"></span> Certain location</div>
+    <div class="leg-item"><span class="leg-dot-uncertain"></span> Uncertain location</div>
+    <div class="leg-item"><span class="leg-line"></span> Movement</div>
+  </div>
+
+  <script>
+    /* ── Narrator definitions (full list for fid lookup; only nishizu shown here) ── */
+    const NARRATORS = [
+      { key: 'furuta',    name: 'Yukiko Furuta',           color: '#e74c3c', fidRange: [1,8]     },
+      { key: 'yoshida',   name: 'Yoshiki Yoshida',          color: '#2ecc71', fidRange: [9,20]    },
+      { key: 'dobashi',   name: 'Yoneko Dobashi',           color: '#3498db', fidRange: [21,28]   },
+      { key: 'ykishi',    name: 'Y. Kishiyama',              color: '#f39c12', fidRange: [29,38]   },
+      { key: 'runo',      name: 'Roy Uno',                  color: '#9b59b6', fidRange: [39,53]   },
+      { key: 'mnitta',    name: 'Mitsuo Nitta',             color: '#1abc9c', fidRange: [54,64]   },
+      { key: 'hnitta',    name: 'Hitoshi Nitta',            color: '#e67e22', fidRange: [65,72]   },
+      { key: 'myabuki',   name: 'Mine Yabuki',              color: '#e91e63', fidRange: [73,85]   },
+      { key: 'tashima',   name: 'Masako Tashima',           color: '#00bcd4', fidRange: [86,92]   },
+      { key: 'marynitta', name: 'Mary Nitta',               color: '#8bc34a', fidRange: [93,101]  },
+      { key: 'mkanno',    name: 'Maki Kanno',               color: '#ff5722', fidRange: [102,114] },
+      { key: 'kishii',    name: 'Kyutaro Ishii',            color: '#90a4ae', fidRange: [115,123] },
+      { key: 'shige',     name: 'Kiyoshi Shigekawa',        color: '#f1c40f', fidRange: [124,132] },
+      { key: 'yoshitomi', name: 'Kinichi K. Yoshitomi',     color: '#a0522d', fidRange: [133,142] },
+      { key: 'kikuchi',   name: 'Kenji Kikuchi',            color: '#27ae60', fidRange: [143,166] },
+      { key: 'kamei',     name: 'Shizu Kamei',              color: '#fd79a8', fidRange: [167,181] },
+      { key: 'jkanno',    name: 'James Kanno',              color: '#a29bfe', fidRange: [182,190] },
+      { key: 'jskishi',   name: 'J.S. Kishiyama',           color: '#55efc4', fidRange: [191,199] },
+      { key: 'kaneko',    name: 'Hyotaro Kaneko',           color: '#fd9644', fidRange: [200,218] },
+      { key: 'minnitta',  name: 'Minoru Nitta',             color: '#b8e994', fidRange: [219,221] },
+      { key: 'akiyama',   name: 'Henry K. Akiyama',         color: '#74b9ff', fidRange: [222,235] },
+      { key: 'kanegae',   name: 'Henry Kanegae',            color: '#ff7675', fidRange: [236,240] },
+      { key: 'takahashi', name: 'Hana Takahashi',           color: '#ffeaa7', fidRange: [241,250] },
+      { key: 'fujii',     name: 'George Fujii',             color: '#6c5ce7', fidRange: [251,264] },
+      { key: 'nishizu',   name: 'Clarence Iwao Nishizu',    color: '#4a90d9', fidRange: [265,323] },
+      { key: 'cishii',    name: 'Charles Ishii',            color: '#00cec9', fidRange: [324,341] },
+      { key: 'amyishii',  name: 'Amy Uno Ishii',            color: '#dfe6e9', fidRange: [342,348] },
+    ];
+
+    const NARRATOR_MAP = {};
+    NARRATORS.forEach(n => {
+      for (let fid = n.fidRange[0]; fid <= n.fidRange[1]; fid++) NARRATOR_MAP[fid] = n.key;
+    });
+    const NARRATOR_BY_KEY = {};
+    NARRATORS.forEach(n => { NARRATOR_BY_KEY[n.key] = n; });
+
+    const CFG = { center: [-117.87, 33.72], zoom: 9, yearMin: 1883, yearMax: 1988, autoPlay: false, loop: false, playMs: 800 };
+
+    let startYear = CFG.yearMin;
+    let endYear   = CFG.yearMax;
+    let playTimer = null;
+    let cumulativeMode = false;
+
+    document.getElementById('splash-ok').addEventListener('click', () => {
+      document.getElementById('splash').style.display = 'none';
+    });
+
+    const map = new maplibregl.Map({
+      container: 'map',
+      style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+      center: CFG.center, zoom: CFG.zoom
+    });
+    map.addControl(new maplibregl.NavigationControl(), 'top-left');
+    map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }), 'bottom-right');
+
+    map.on('load', () => {
+      fetch('../map-data/OCJ_Experience_0_2_1_Full_WFL1.geojson')
+        .then(r => r.json())
+        .then(geojson => {
+          geojson.features.forEach(f => {
+            if (!f.geometry) return;
+            const p = f.properties;
+            p._narrator = (f.id != null ? NARRATOR_MAP[f.id] : null) || 'unknown';
+            const byRaw = p.Year_Begin || p.Begin_Year;
+            const eyRaw = p.Year_End   || p.End_Year;
+            if (byRaw) { const y = new Date(byRaw).getFullYear(); if (!isNaN(y)) p._yb = y; }
+            if (eyRaw) { const y = new Date(eyRaw).getFullYear(); if (!isNaN(y)) p._ye = y; }
+          });
+
+          map.addSource('features', { type: 'geojson', data: geojson, buffer: 64 });
+
+          map.addLayer({
+            id: 'feat-lines',
+            type: 'line',
+            source: 'features',
+            filter: buildFilter('line'),
+            paint: { 'line-color': '#f5a623', 'line-width': 2, 'line-opacity': 0.8 }
+          });
+
+          map.addLayer({
+            id: 'feat-points',
+            type: 'circle',
+            source: 'features',
+            filter: buildFilter('point'),
+            paint: {
+              'circle-radius': ['case', ['==', ['get', 'Lat_Long_Uncertainty'], 'Yes'], 9, 6],
+              'circle-color': '#4a90d9',
+              'circle-opacity': ['case', ['==', ['get', 'Lat_Long_Uncertainty'], 'Yes'], 0.5, 1.0],
+              'circle-stroke-color': 'rgba(26,26,26,0.8)',
+              'circle-stroke-width': 1
+            }
+          });
+
+          ['feat-points', 'feat-lines'].forEach(id => {
+            map.on('click', id, showPopup);
+            map.on('mouseenter', id, () => { map.getCanvas().style.cursor = 'pointer'; });
+            map.on('mouseleave', id, () => { map.getCanvas().style.cursor = ''; });
+          });
+
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('time-ctrl').style.display = 'flex';
+          document.getElementById('legend').style.display = 'block';
+          initSlider();
+        });
+    });
+
+    /* ── Filter: only Nishizu's features, plus time ── */
+    function buildFilter(geomClass) {
+      const geomF = geomClass === 'point'
+        ? ['==', ['geometry-type'], 'Point']
+        : ['!=', ['geometry-type'], 'Point'];
+
+      let timeF;
+      if (cumulativeMode) {
+        timeF = ['any', ['!', ['has', '_yb']], ['<=', ['get', '_yb'], endYear]];
+      } else {
+        timeF = ['all',
+          ['any', ['!', ['has', '_yb']], ['<=', ['get', '_yb'], endYear]],
+          ['any', ['!', ['has', '_ye']], ['>=', ['get', '_ye'], startYear]]
+        ];
+      }
+
+      const narratorF = ['==', ['get', '_narrator'], 'nishizu'];
+      return ['all', geomF, timeF, narratorF];
+    }
+
+    function applyFilters() {
+      map.setFilter('feat-points', buildFilter('point'));
+      map.setFilter('feat-lines',  buildFilter('line'));
+    }
+
+    /* ── Dual-range slider ── */
+    function initSlider() {
+      const slStart = document.getElementById('tc-start');
+      const slEnd   = document.getElementById('tc-end');
+
+      function syncSliders() {
+        if (!cumulativeMode && parseInt(slStart.value) > parseInt(slEnd.value)) {
+          slStart.value = slEnd.value;
+        }
+        startYear = parseInt(slStart.value);
+        endYear   = parseInt(slEnd.value);
+        document.getElementById('tc-start-label').textContent = cumulativeMode ? CFG.yearMin : startYear;
+        document.getElementById('tc-end-label').textContent   = endYear;
+        updateFill();
+        applyFilters();
+      }
+
+      slStart.addEventListener('input', () => { stopPlay(); syncSliders(); });
+      slEnd.addEventListener('input',   () => { stopPlay(); syncSliders(); });
+      updateFill();
+
+      document.getElementById('tc-play').addEventListener('click', () => {
+        if (playTimer) stopPlay(); else startPlay();
+      });
+      document.getElementById('tc-prev').addEventListener('click', () => {
+        stopPlay();
+        if (cumulativeMode) {
+          if (endYear > CFG.yearMin) { slEnd.value = endYear - 1; syncSliders(); }
+        } else {
+          if (startYear > CFG.yearMin) {
+            slStart.value = startYear - 1;
+            slEnd.value   = endYear - 1;
+            syncSliders();
+          }
+        }
+      });
+      document.getElementById('tc-next').addEventListener('click', () => {
+        stopPlay();
+        if (endYear < CFG.yearMax) {
+          if (!cumulativeMode) slStart.value = startYear + 1;
+          slEnd.value = endYear + 1;
+          syncSliders();
+        }
+      });
+
+      document.getElementById('tc-mode').addEventListener('click', () => {
+        stopPlay();
+        cumulativeMode = !cumulativeMode;
+        const btn  = document.getElementById('tc-mode');
+        const hint = document.getElementById('tc-hint');
+        const slS  = document.getElementById('tc-start');
+        if (cumulativeMode) {
+          btn.textContent = 'Cumulative';
+          btn.classList.add('cumulative');
+          slS.disabled = true;
+          hint.textContent = 'Cumulative: showing all starts \u2264 end year';
+          document.getElementById('tc-start-label').textContent = CFG.yearMin;
+        } else {
+          btn.textContent = 'Window';
+          btn.classList.remove('cumulative');
+          slS.disabled = false;
+          hint.textContent = 'Drag either handle \u2022 Play slides the window forward';
+          document.getElementById('tc-start-label').textContent = startYear;
+        }
+        applyFilters();
+        updateFill();
+      });
+    }
+
+    function updateFill() {
+      const min = CFG.yearMin, max = CFG.yearMax;
+      const pct1 = cumulativeMode ? 0 : (startYear - min) / (max - min) * 100;
+      const pct2 = (endYear - min) / (max - min) * 100;
+      const fill = document.getElementById('tc-fill');
+      fill.style.left  = pct1 + '%';
+      fill.style.width = (pct2 - pct1) + '%';
+    }
+
+    function startPlay() {
+      if (playTimer) return;
+      document.getElementById('tc-play').innerHTML = '&#9646;&#9646; Pause';
+      const width = cumulativeMode ? 0 : (endYear - startYear);
+      playTimer = setInterval(() => {
+        if (endYear >= CFG.yearMax) { stopPlay(); return; }
+        if (!cumulativeMode) document.getElementById('tc-start').value = startYear + 1;
+        document.getElementById('tc-end').value = endYear + 1;
+        startYear = parseInt(document.getElementById('tc-start').value);
+        endYear   = parseInt(document.getElementById('tc-end').value);
+        document.getElementById('tc-start-label').textContent = cumulativeMode ? CFG.yearMin : startYear;
+        document.getElementById('tc-end-label').textContent   = endYear;
+        updateFill();
+        applyFilters();
+      }, CFG.playMs);
+    }
+
+    function stopPlay() {
+      clearInterval(playTimer); playTimer = null;
+      document.getElementById('tc-play').innerHTML = '&#9654; Play';
+    }
+
+    /* ── Popup ── */
+    function showPopup(e) {
+      const f = e.features[0];
+      const p = f.properties;
+      const isPoint = f.geometry.type === 'Point';
+      let html = '<div class="pop-narrator">Clarence Iwao Nishizu</div>';
+      if (isPoint) {
+        const yb = p._yb || (p.Year_Begin ? new Date(p.Year_Begin).getFullYear() : '?');
+        const ye = p._ye || (p.Year_End   ? new Date(p.Year_End).getFullYear()   : '?');
+        html += '<div class="pop-title">' + (p.Location || 'Location') + '</div>';
+        html += '<div class="pop-field"><span class="pop-label">Years:&nbsp;</span>' + yb + ' \u2013 ' + ye + '</div>';
+        if (p.Lat_Long_Uncertainty === 'Yes') html += '<div class="pop-field"><span class="pop-label">Location uncertain</span></div>';
+      } else {
+        const yb = p._yb || (p.Begin_Year ? new Date(p.Begin_Year).getFullYear() : '?');
+        const ye = p._ye || (p.End_Year   ? new Date(p.End_Year).getFullYear()   : '?');
+        html += '<div class="pop-field"><span class="pop-label">Movement:&nbsp;</span>' + yb + ' \u2013 ' + ye + '</div>';
+      }
+      if (p.Description) html += '<div class="pop-desc">' + p.Description + '</div>';
+      new maplibregl.Popup({ maxWidth: '340px' }).setLngLat(e.lngLat).setHTML(html).addTo(map);
+    }
+  </script>
+</body>
+</html>
