@@ -161,6 +161,7 @@ p {
   width: 100%;
   overflow: hidden;
   height: 601px;
+  margin-bottom: 1.5rem;
 }
 
 h1.title {
@@ -173,7 +174,7 @@ h2 {
   font-family: var(--header-font);
   font-size: 1.3rem;
   letter-spacing: 0.03rem;
-  color: var(--accent-color-1);
+  color: #8b0020;
   margin-bottom: 0.2rem;
 }
 
